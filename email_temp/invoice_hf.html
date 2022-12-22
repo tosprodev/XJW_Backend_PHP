@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+  <!-- Meta Tags -->
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Laralink">
+  <!-- Site Title -->
+  <title>%invoice_no% |XJW Mobile Massage Invoice</title>
+  <link rel="stylesheet" href="%baseurl%/invoice/css/style.css">
+</head>
+<body>
+  <div class="tm_container">
+    <div class="tm_invoice_wrap">
+      <div class="tm_invoice tm_style1 tm_type1" id="tm_download_section">
+        <div class="tm_invoice_in">
+          <div class="tm_invoice_head tm_top_head tm_mb15 tm_align_center">
+            <div class="tm_invoice_left">
+              <div class="tm_logo"><img src="%baseurl%/assets/logo.png" alt="Logo"></div>
+            </div>
+            <div class="tm_invoice_right tm_text_right tm_mobile_hide">
+              <div class="tm_f50 tm_text_uppercase tm_white_color">Invoice</div>
+            </div>
+            <div class="tm_shape_bg tm_accent_bg tm_mobile_hide"></div>
+          </div>
+          <div class="tm_invoice_info tm_mb25">
+            <div class="tm_card_note tm_mobile_hide"><b class="tm_primary_color">Payment Method: </b>PayPal</div>
+            <div class="tm_invoice_info_list tm_white_color">
+              <p class="tm_invoice_number tm_m0">Invoice No: <b>%invoice_no%</b></p>
+              <p class="tm_invoice_date tm_m0">Date: <b>%bdate%</b></p>
+            </div>
+            <div class="tm_invoice_seperator tm_accent_bg"></div>
+          </div>
+		  <?php 
+		  if ($comefm == "2") {?>
+		  <div class="tm_invoice_head tm_m10" >
+            <div class="tm_invoice_left">
+              <p class="tm_mb2"><b class="tm_primary_color">ABN No.:</b></p>
+              <p>
+			  95470277002
+              </p>
+            </div>
+            <div class="tm_invoice_right tm_text_right">
+              <p class="tm_mb2"><b class="tm_primary_color">Provider No:</b></p>
+              <p>
+				%health_provider_no%<br>
+              </p>
+            </div>
+          </div>
+		  <?php }?>
+		  
+		  <div class="tm_invoice_head tm_mb10">
+            <div class="tm_invoice_left">
+              <p class="tm_mb2"><b class="tm_primary_color">Invoice To:</b></p>
+              <p>
+			  %name%<br>
+			  DOB : %dob%<br>
+				%address%<br>
+			    %email% <br>
+              </p>
+            </div>
+            <div class="tm_invoice_right tm_text_right">
+              <p class="tm_mb2"><b class="tm_primary_color">Pay To:</b></p>
+              <p>
+				%practitioner%<br>
+				U2 5 FIRTH STREET, DONCASTER, VIC. 3108<br>
+                %prct_email% <br>
+              </p>
+            </div>
+          </div>
+		  
+		  <div class="tm_invoice_head tm_mb10">
+            <div class="tm_invoice_left">
+              <p class="tm_mb2"><b class="tm_primary_color">DATE OF TREATMENT:</b></p>
+              <p>
+			  %bdate%<br>
+              </p>
+            </div>
+            <div class="tm_invoice_right tm_text_right">
+              <p class="tm_mb2"><b class="tm_primary_color">BOOKING AT:</b></p>
+              <p>
+				%cur_time%<br>
+              </p>
+            </div>
+          </div>
+          <div class="tm_table tm_style1">
+            <div class="">
+              <div class="tm_table_responsive">
+                <table>
+                  <thead>
+                    <tr class="tm_accent_bg">
+                      <th class="tm_width_3 tm_semi_bold tm_white_color">Item</th>
+                      <th class="tm_width_4 tm_semi_bold tm_white_color">Duration</th>
+                      <th class="tm_width_2 tm_semi_bold tm_white_color">Price</th>
+                      <th class="tm_width_1 tm_semi_bold tm_white_color">Qty</th>
+                      <th class="tm_width_2 tm_semi_bold tm_white_color tm_text_right">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="tm_width_3">%service%</td>
+                      <td class="tm_width_4">%duration%</td>
+                      <td class="tm_width_2">$%scharge%</td>
+                      <td class="tm_width_1">1</td>
+                      <td class="tm_width_2 tm_text_right">$%scharge%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="tm_invoice_footer tm_border_top tm_mb15 tm_m0_md">
+              <div class="tm_left_footer">
+                <p class="tm_mb2"><b class="tm_primary_color">Booked Timeslot:</b></p>
+                <p class="tm_m0">%time_slot% </p>
+              </div>
+              <div class="tm_right_footer">
+                <table class="tm_mb15">
+                  <tbody>
+                    <tr class="tm_gray_bg ">
+                      <td class="tm_width_3 tm_primary_color tm_bold">Subtoal</td>
+                      <td class="tm_width_3 tm_primary_color tm_bold tm_text_right">$%scharge%</td>
+                    </tr>
+                    <tr class="tm_gray_bg">
+                      <td class="tm_width_3 tm_primary_color">Tax <span class="tm_ternary_color">(%paypalpercent%%)</span></td>
+                      <td class="tm_width_3 tm_primary_color tm_text_right">$%tfee%</td>
+                    </tr>
+                    <tr class="tm_accent_bg">
+                      <td class="tm_width_3 tm_border_top_0 tm_bold tm_f16 tm_white_color">Grand Total	</td>
+                      <td class="tm_width_3 tm_border_top_0 tm_bold tm_f16 tm_white_color tm_text_right">$%total%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="tm_invoice_footer tm_type1">
+              <div class="tm_left_footer"></div>
+              <div class="tm_right_footer">
+                <div class="tm_sign tm_text_center">
+                  <!--<img src="%baseurl%/assets/signature.png" alt="Sign">-->
+                  <p class="tm_m0 tm_ternary_color">%practitioner%</p>
+                  <p class="tm_m0 tm_f16 tm_primary_color">Practitioner</p>
+                </div>
+              </div>
+            </div>
+			<a href="%baseurl%/invoice/invoice.php?invoice_id=%invoice_no%" class="tm_color1" style="background-color: #34C759; color: white; padding: 10px 24px; border-radius: 10px; border: 2px solid #0A7FFF; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); .button:hover {
+			background-color: #0A7FFF; 
+			color: white;
+			}">
+		  <span class="tm_btn_text">Download Invoice</span>
+		  </a>
+          </div>
+          <!--<div class="tm_note tm_text_center tm_font_style_normal">
+            <hr class="tm_mb15">
+            <p class="tm_mb2"><b class="tm_primary_color">Terms & Conditions:</b></p>
+            <p class="tm_m0">All claims relating to quantity or shipping errors shall be waived by Buyer unless made in writing to <br>Seller within thirty (30) days after delivery of goods to the address stated.</p>
+          </div><!-- .tm_note -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>
