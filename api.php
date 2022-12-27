@@ -1,5 +1,4 @@
 <?php 
-//Hello world
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
  require_once 'functions.php';
