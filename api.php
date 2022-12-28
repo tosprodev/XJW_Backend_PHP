@@ -1255,7 +1255,7 @@ case 'get_timeslot_list';
 	$sname = $_GET['sname'];
 	$durationx = $_GET['durtion'];
 	
-	 $sql = "SELECT id FROM service WHERE sevice_name='$sname'";
+	 $sql = "SELECT id FROM service WHERE sevice_name='$sname' AND NOT time_start='09:00'";
 					$result = $conn->query($sql);
 
 					if ($result->num_rows > 0) {
