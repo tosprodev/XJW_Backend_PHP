@@ -1,41 +1,47 @@
 <?php 
-function sendMessage(){
-    $content = array(
-        "en" => 'Testing Message'
-        );
-
-    $fields = array(
-        'app_id' => "a47f4497-ae57-414d-bd21-6b63a1f322aa",
-        'included_segments' => array('All'),
-        'data' => array("foo" => "bar"),
-        'large_icon' =>"ic_launcher_round.png",
-        'contents' => $content
-    );
-
-    $fields = json_encode($fields);
-print("\nJSON sent:\n");
-print($fields);
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json; charset=utf-8',
-                                               'Authorization: Basic ZTQ2YjY5NGItMGIzZS00ZDZlLThiNDMtNmNjMTYxYTAyOTVm'));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($ch, CURLOPT_HEADER, FALSE);
-    curl_setopt($ch, CURLOPT_POST, TRUE);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);    
-
-    $response = curl_exec($ch);
-    curl_close($ch);
-
-    return $response;
-}
-
-$response = sendMessage();
-$return["allresponses"] = $response;
-$return = json_encode( $return);
-print("\n\nJSON received:\n");
-print($return);
-print("\n");
-?>
+ 
+ //Getting the page number which is to be displayed  
+ $page = $_GET['page']; 
+ 
+ //Initially we show the data from 1st row that means the 0th row 
+ $start = 0; 
+ 
+ //Limit is 3 that means we will show 3 items at once
+ $limit = 3; 
+ 
+ //Importing the database connection 
+ require_once('dbConnect.php');
+ 
+ //Counting the total item available in the database 
+ $total = mysqli_num_rows(mysqli_query($con, "SELECT id from feed "));
+ 
+ //We can go atmost to page number total/limit
+ $page_limit = $total/$limit; 
+ 
+ //If the page number is more than the limit we cannot show anything 
+ if($page<=$page_limit){
+ 
+ //Calculating start for every given page number 
+ $start = ($page - 1) * $limit; 
+ 
+ //SQL query to fetch data of a range 
+ $sql = "SELECT * from feed limit $start, $limit";
+ 
+ //Getting result 
+ $result = mysqli_query($con,$sql); 
+ 
+ //Adding results to an array 
+ $res = array(); 
+ 
+ while($row = mysqli_fetch_array($result)){
+ array_push($res, array(
+ "name"=>$row['name'],
+ "publisher"=>$row['publisher'],
+ "image"=>$row['image'])
+ );
+ }
+ //Displaying the array in json format 
+ echo json_encode($res);
+ }else{
+            echo "over";
+    }
