@@ -22,7 +22,7 @@
  $start = ($page - 1) * $limit; 
  
  //SQL query to fetch data of a range 
- $sql = "SELECT * from feed limit $start, $limit";
+ $sql = "SELECT * from service limit $start, $limit";
  
  //Getting result 
  $result = mysqli_query($con,$sql); 
