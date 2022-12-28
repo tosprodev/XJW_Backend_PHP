@@ -3077,7 +3077,7 @@ if ($result->num_rows > 0) {
 			case 'get_all_services_home_pagination';
 				$page = $_GET['page']; 
 				$start = 0; 
-				$limit = 2; 
+				$limit = 3; 
 				$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM service WHERE NOT sevice_name = 'Choose Service'"));
 				$page_limit = $total/$limit; 
 				if($page<=$page_limit){
