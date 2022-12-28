@@ -1,5 +1,6 @@
 <?php 
- 
+  require_once 'functions.php';
+  require_once 'config.php';
  //Getting the page number which is to be displayed  
  $page = $_GET['page']; 
  
@@ -8,12 +9,8 @@
  
  //Limit is 3 that means we will show 3 items at once
  $limit = 3; 
- 
- //Importing the database connection 
- require_once('dbConnect.php');
- 
  //Counting the total item available in the database 
- $total = mysqli_num_rows(mysqli_query($con, "SELECT id from feed "));
+ $total = mysqli_num_rows(mysqli_query($conn, "SELECT id, sevice_name, details FROM service"));
  
  //We can go atmost to page number total/limit
  $page_limit = $total/$limit; 
@@ -35,9 +32,9 @@
  
  while($row = mysqli_fetch_array($result)){
  array_push($res, array(
- "name"=>$row['name'],
- "publisher"=>$row['publisher'],
- "image"=>$row['image'])
+ "sevice_name"=>$row['sevice_name'],
+ "details"=>$row['details'],
+ "details"=>$row['details'])
  );
  }
  //Displaying the array in json format 
