@@ -25,7 +25,7 @@
  $sql = "SELECT * from service limit $start, $limit";
  
  //Getting result 
- $result = mysqli_query($con,$sql); 
+ $result = mysqli_query($conn,$sql); 
  
  //Adding results to an array 
  $res = array(); 
