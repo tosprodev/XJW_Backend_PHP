@@ -10,7 +10,7 @@
  //Limit is 3 that means we will show 3 items at once
  $limit = 3; 
  //Counting the total item available in the database 
- $total = mysqli_num_rows(mysqli_query($conn, "SELECT id, sevice_name, details FROM service"));
+ $total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM service"));
  
  //We can go atmost to page number total/limit
  $page_limit = $total/$limit; 
