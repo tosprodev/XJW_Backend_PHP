@@ -1277,7 +1277,7 @@ case 'get_timeslot_list';
 	
 			//creating a query
 	//$stmt = $conn->prepare("SELECT id, time_start, time_sm, time_end, time_em, status, extra_charge, durtion_id FROM time_slot;");
-	$stmt = $conn->prepare("SELECT id, time_start, time_sm, time_end, time_em, status, extra_charge, durtion_id FROM time_slot WHERE durtion_id='$DID'");
+	$stmt = $conn->prepare("SELECT id, time_start, time_sm, time_end, time_em, status, extra_charge, durtion_id FROM time_slot WHERE durtion_id='$DID' AND NOT time_start='09:00'");
 	
 	//executing the query 
 	$stmt->execute();
