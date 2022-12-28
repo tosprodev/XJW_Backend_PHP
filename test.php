@@ -33,7 +33,6 @@
  while($row = mysqli_fetch_array($result)){
  array_push($res, array(
  "sevice_name"=>$row['sevice_name'],
- "details"=>$row['details'],
  "details"=>$row['details'])
  );
  }
