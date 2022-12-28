@@ -10,7 +10,7 @@
  //Limit is 3 that means we will show 3 items at once
  $limit = 3; 
  //Counting the total item available in the database 
- $total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM service"));
+ $total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM service WHERE NOT sevice_name = 'Choose Service'"));
  
  //We can go atmost to page number total/limit
  $page_limit = $total/$limit; 
@@ -22,7 +22,7 @@
  $start = ($page - 1) * $limit; 
  
  //SQL query to fetch data of a range 
- $sql = "SELECT * from service limit $start, $limit";
+ $sql = "SELECT * from service WHERE NOT sevice_name = 'Choose Service' limit $start, $limit";
  
  //Getting result 
  $result = mysqli_query($conn,$sql); 
