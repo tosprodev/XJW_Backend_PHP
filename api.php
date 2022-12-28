@@ -3071,6 +3071,32 @@ if ($result->num_rows > 0) {
 	        //displaying the result in json format 
             echo json_encode($myservice);
 			break; 
+
+			/*----------------------------------------------------------- Get All Services with pagination ----------------------------------------------------*/
+			
+			case 'get_all_services_home_pagination';
+				$page = $_GET['page']; 
+				$start = 0; 
+				$limit = 3; 
+				$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM service WHERE NOT sevice_name = 'Choose Service'"));
+				$page_limit = $total/$limit; 
+				if($page<=$page_limit){
+				$start = ($page - 1) * $limit; 
+				$sql = "SELECT * from service WHERE NOT sevice_name = 'Choose Service' limit $start, $limit";
+				$result = mysqli_query($conn,$sql); 
+				$res = array(); 
+				while($row = mysqli_fetch_array($result)){
+				array_push($res, array(
+				"id"=>$row['id'],
+				"sevice_name"=>$row['sevice_name'],
+				"details"=>$row['details'])
+				);
+				}
+				echo json_encode($res);
+				}else{
+						echo "over";
+				}
+			break; 
 			
 			/*----------------------------------------------------------- Get Duration & Price ----------------------------------------------------*/
 			
