@@ -32,6 +32,7 @@
  
  while($row = mysqli_fetch_array($result)){
  array_push($res, array(
+ "id"=>$row['id'],
  "sevice_name"=>$row['sevice_name'],
  "details"=>$row['details'])
  );
