@@ -2313,7 +2313,7 @@ case 'get_prices';
 				$page_limit = $total/$limit; 
 				if($page<=$page_limit){
 				$start = ($page - 1) * $limit; 
-				$sql = "SELECT * FROM health_fund_booking WHERE uid = '$uid' limit $start, $limit";
+				$sql = "SELECT * FROM health_fund_booking limit $start, $limit WHERE uid = '$uid'";
 				$result = mysqli_query($conn,$sql); 
 				$res = array(); 
 				while($row = mysqli_fetch_array($result)){
