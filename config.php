@@ -4,10 +4,22 @@
 //the username is root by default in case of xampp
 //password is nothing by default
 //and lastly we have the database named android. if your database name is different you have to change it 
-$servername = "localhost";
-$username = "u150691108_test_app";
-$password = "rm#HHE9s9S?";
-$database = "u150691108_test_app";
+//Change develoment or live
+
+$BackendMode = "development";
+
+if ( $BackendMode == "development" ) {
+    $servername = "localhost";
+    $username = "u150691108_test_app";
+    $password = "rm#HHE9s9S?";
+    $database = "u150691108_test_app";
+} else if ( $BackendMode == "live" ) {
+    $servername = "localhost";
+    $username = "u150691108_app";
+    $password = "rm#HHE9s9S?";
+    $database = "u150691108_app";
+
+}
 
 //Email Setup
 $email_host = 'smtp.hostinger.in';
