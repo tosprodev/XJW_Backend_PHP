@@ -5,9 +5,9 @@
 //password is nothing by default
 //and lastly we have the database named android. if your database name is different you have to change it 
 $servername = "localhost";
-$username = "u150691108_app";
+$username = "u150691108_test_app";
 $password = "rm#HHE9s9S?";
-$database = "u150691108_app";
+$database = "u150691108_test_app";
 
 //Email Setup
 $email_host = 'smtp.hostinger.in';
