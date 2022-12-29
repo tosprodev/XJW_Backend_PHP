@@ -2210,6 +2210,49 @@ case 'get_prices';
 	        //displaying the result in json format 
             echo json_encode($mybooking);
 			break; 
+
+			/*----------------------------------------------------------- Get My Bookings with pagination ----------------------------------------------------*/
+			
+			case 'get_mybooking_list_pagination';
+				$uid = $_GET['uid'];
+				$page = $_GET['page']; 
+				$start = 0; 
+				$limit = 3; 
+				$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM booking WHERE id = '$uid'"));
+				$page_limit = $total/$limit; 
+				if($page<=$page_limit){
+				$start = ($page - 1) * $limit; 
+				$sql = "SELECT * from booking WHERE id = '$uid' limit $start, $limit";
+				$result = mysqli_query($conn,$sql); 
+				$res = array(); 
+				while($row = mysqli_fetch_array($result)){
+				array_push($res, array(
+				"id"=>$row['id'],
+				"service"=>$row['service'],
+				"practitioner"=>$row['practitioner'],
+				"bdate"=>$row['bdate'],
+				"duration"=>$row['duration'],
+				"timeslot"=>$row['timeslot'],
+				"booking_for"=>$row['booking_for'],
+				"recipient"=>$row['recipient'],
+				"address"=>$row['address'],
+				"note"=>$row['note'],
+				"scharge"=>$row['scharge'],
+				"tfee"=>$row['tfee'],
+				"total"=>$row['total'],
+				"status"=>$row['status'],
+				"payment_status"=>$row['payment_status'],
+				"transaction_id"=>$row['transaction_id'],
+				"invoice_id"=>$row['invoice_id'],
+				"uid"=>$row['uid'],
+				"cur_time"=>$row['cur_time'])
+				);
+				}
+				echo json_encode($res);
+				}else{
+						echo "over";
+				}
+			break; 
 			 
 			/*----------------------------------------------------------- Get My Bookings With Health Fund----------------------------------------------------*/
 			
