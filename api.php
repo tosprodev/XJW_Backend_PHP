@@ -2308,12 +2308,12 @@ case 'get_prices';
 				$uid = $_GET['uid'];
 				$page = $_GET['page']; 
 				$start = 0; 
-				$limit = 3; 
+				$limit = 2; 
 				$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM health_fund_booking WHERE uid = '$uid'"));
 				$page_limit = $total/$limit; 
 				if($page<=$page_limit){
 				$start = ($page - 1) * $limit; 
-				$sql = "SELECT * FROM health_fund_booking limit $start, $limit WHERE uid = '$uid'";
+				$sql = "SELECT * FROM health_fund_booking WHERE uid = '$uid' limit $start, $limit";
 				$result = mysqli_query($conn,$sql); 
 				$res = array(); 
 				while($row = mysqli_fetch_array($result)){
