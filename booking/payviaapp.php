@@ -93,8 +93,8 @@ h5:before {
 }
 </style>
 <section>
-										<!--<form class="form-horizontal" id="form2" method="POST" action="https://www.sandbox.PayPal.com/cgi-bin/webscr ">-->
-										<form class="form-horizontal" id="form2" method="POST" action="https://www.paypal.com/cgi-bin/webscr">
+										<form class="form-horizontal" id="form2" method="POST" action="https://www.sandbox.PayPal.com/cgi-bin/webscr ">
+										<!--<form class="form-horizontal" id="form2" method="POST" action="https://www.paypal.com/cgi-bin/webscr">-->
 										   <fieldset>
 
 											   <!-- Form Name -->
@@ -108,8 +108,8 @@ h5:before {
 													   <!--<span class="help-block">XJW Mobile Massage</span>-->
 												   </div>
 											   </div>
-												<!--<input type='hidden' name='business' value='sb-xb1bt19114795@business.example.com'>-->
-											   <input type='hidden' name='business' value='peterwang65131@gmail.com'>
+												<input type='hidden' name='business' value='sb-xb1bt19114795@business.example.com'>
+											   <!--<input type='hidden' name='business' value='peterwang65131@gmail.com'>-->
 											   <input type='hidden' name='item_name' value='<?php echo $service; ?>'>
 											   <input type='hidden' name='item_number' value='<?php echo $service; ?>'>
 											   <!--<input type='hidden' name='amount' value='10'>
