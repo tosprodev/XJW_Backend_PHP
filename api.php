@@ -2222,7 +2222,7 @@ case 'get_prices';
 				$page_limit = $total/$limit; 
 				if($page<=$page_limit){
 				$start = ($page - 1) * $limit; 
-				$sql = "SELECT * from booking WHERE id = '$uid' limit $start, $limit";
+				$sql = "SELECT * FROM booking WHERE id = '$uid' limit $start, $limit";
 				$result = mysqli_query($conn,$sql); 
 				$res = array(); 
 				while($row = mysqli_fetch_array($result)){
