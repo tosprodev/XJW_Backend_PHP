@@ -2218,11 +2218,11 @@ case 'get_prices';
 				$page = $_GET['page']; 
 				$start = 0; 
 				$limit = 3; 
-				$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM booking WHERE id = '$uid'"));
+				$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM booking WHERE id = '22'"));
 				$page_limit = $total/$limit; 
 				if($page<=$page_limit){
 				$start = ($page - 1) * $limit; 
-				$sql = "SELECT * FROM booking WHERE id = '$uid' limit $start, $limit";
+				$sql = "SELECT * FROM booking WHERE id = '22' limit $start, $limit";
 				$result = mysqli_query($conn,$sql); 
 				$res = array(); 
 				while($row = mysqli_fetch_array($result)){
