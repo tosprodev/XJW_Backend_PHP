@@ -6,7 +6,7 @@
 //and lastly we have the database named android. if your database name is different you have to change it 
 //Change develoment or live
 
-$BackendMode = "develoment";
+$BackendMode = "development";
 
 if ( $BackendMode == "development" ) {
     $servername = "localhost";

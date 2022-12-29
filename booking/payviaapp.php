@@ -93,7 +93,19 @@ h5:before {
 }
 </style>
 <section>
-										<form class="form-horizontal" id="form2" method="POST" action="https://www.sandbox.PayPal.com/cgi-bin/webscr ">
+											<?php
+											   if ( $BackendMode == "development" ) {
+													?>
+													<form class="form-horizontal" id="form2" method="POST" action="https://www.sandbox.PayPal.com/cgi-bin/webscr ">
+													<?php
+												} else if ( $BackendMode == "live" ) {
+													?>
+													<form class="form-horizontal" id="form2" method="POST" action="https://www.paypal.com/cgi-bin/webscr">
+													<?php
+												
+												}
+											?>
+										
 										<!--<form class="form-horizontal" id="form2" method="POST" action="https://www.paypal.com/cgi-bin/webscr">-->
 										   <fieldset>
 
@@ -108,7 +120,19 @@ h5:before {
 													   <!--<span class="help-block">XJW Mobile Massage</span>-->
 												   </div>
 											   </div>
-												<input type='hidden' name='business' value='sb-xb1bt19114795@business.example.com'>
+											   <?php
+											   if ( $BackendMode == "development" ) {
+													?>
+													<input type='hidden' name='business' value='sb-xb1bt19114795@business.example.com'>
+													<?php
+												} else if ( $BackendMode == "live" ) {
+													?>
+													<input type='hidden' name='business' value='peterwang65131@gmail.com'>
+													<?php
+												
+												}
+											   ?>
+												
 											   <!--<input type='hidden' name='business' value='peterwang65131@gmail.com'>-->
 											   <input type='hidden' name='item_name' value='<?php echo $service; ?>'>
 											   <input type='hidden' name='item_number' value='<?php echo $service; ?>'>
