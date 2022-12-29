@@ -2340,8 +2340,8 @@ case 'get_prices';
 				"transaction_id"=>$row['transaction_id'],
 				"invoice_id"=>$row['invoice_id'],
 				"uid"=>$row['uid'],
-				"cur_time"=>$row['cur_time']
-				array_push($mybooking, $temp););
+				"cur_time"=>$row['cur_time'])
+				);
 				}
 				echo json_encode($res);
 				}else{
