@@ -10,9 +10,12 @@
  } else {
     echo "Expired";
  }*/
- $needle   = '-';
  
- if (strpos($getdays, $needle) !== false) {
-     echo 'true';
+ if (strpos($getdays, "-") !== false) {
+    echo "Last Date";
+ } else if ($getdays == "0"){
+    echo "Last Date";
+ } else {
+    echo $getdays;
  }
  //echo $getdays;
