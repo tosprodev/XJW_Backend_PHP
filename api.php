@@ -3558,7 +3558,7 @@ if ($result->num_rows > 0) {
 							echo "Rows Not exist";
 						}*/
 
-						if(mysql_num_rows(mysql_query("SELECT id FROM cancel_request WHERE booking_type = '$booking_type'"))){
+						if(mysql_num_rows($conn,mysql_query("SELECT id FROM cancel_request WHERE booking_type = '$booking_type'"))){
 
 							// Code inside if block if userid is already there
 							echo "Rows exist";
