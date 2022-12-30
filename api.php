@@ -2317,6 +2317,18 @@ case 'get_prices';
 				$result = mysqli_query($conn,$sql); 
 				$res = array(); 
 				while($row = mysqli_fetch_array($result)){
+					$now = time();
+				$your_date = strtotime($row['BDate']);
+				$datediff =  $your_date - $now;
+				$getdays = round($datediff / (60 * 60 * 24));
+				
+				if ($getdays == -0) {
+					$mystatus = 5;
+				} else if (strpos($getdays, "-") !== false){
+				   $mystatus = 5;
+				} else {
+					$mystatus = $row['status'];
+				}
 				array_push($res, array(
 				"id"=>$row['id'],
 				"service"=>$row['service'],
@@ -2335,20 +2347,6 @@ case 'get_prices';
 				"scharge"=>$row['scharge'],
 				"tfee"=>$row['tfee'],
 				"total"=>$row['total'],
-
-				$now = time();
-				$your_date = strtotime($row['BDate']);
-				$datediff =  $your_date - $now;
-				$getdays = round($datediff / (60 * 60 * 24));
-				
-				if ($getdays == -0) {
-					$mystatus = 5;
-				} else if (strpos($getdays, "-") !== false){
-				   $mystatus = 5;
-				} else {
-					$mystatus = $row['status'];
-				}
-
 				"status"=>$mystatus,
 				"payment_status"=>$row['payment_status'],
 				"transaction_id"=>$row['transaction_id'],
