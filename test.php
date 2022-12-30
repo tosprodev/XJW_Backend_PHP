@@ -7,5 +7,7 @@ if (str_contains($getdays, '-')) {
     echo "Expired";
  } else if ($getdays == 0){
     echo "Last Date";
+ } else {
+    echo "Expired";
  }
  //echo $getdays;
