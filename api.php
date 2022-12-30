@@ -3681,11 +3681,11 @@ if ($result->num_rows > 0) {
 							//file_put_contents($path,base64_decode($image));
 							echo "Successfully Uploaded";
 							}*/
-							$Sql_Query = "UPDATE users SET user_dp = '$actualpath' WHERE id = $id";
+							$sql = "UPDATE users SET user_dp = '$actualpath' WHERE id = $id";
             
-							if(mysqli_query($conn,$Sql_Query)){
+							if(mysqli_query($conn,$sql)){
 							file_put_contents($path,base64_decode($image));
-							echo 'Service Updated Successfully';
+							echo 'Successfully Uploaded';
 							} else {
 							echo 'Something went wrong';
 							}
