@@ -3670,15 +3670,15 @@ if ($result->num_rows > 0) {
 							unlink($path_user.$file_name);
 							}*/
 							
-							$path = "/assets/upload/$id.png";
+							$path = "assets/upload/$id.png";
 							
-							$actualpath = "$baseurl.$path";
+							$actualpath = "$baseurl."/".$path";
 							
 							//$sql = "INSERT INTO users (user_dp) VALUES ('$actualpath') WHERE id = 22";
 							$Sql = "UPDATE users SET user_dp = '$actualpath' WHERE id = $id";
 							
 							if(mysqli_query($conn,$sql)){
-							//file_put_contents($path,base64_decode($image));
+							file_put_contents($path,base64_decode($image));
 							echo "Successfully Uploaded";
 							}
 							
