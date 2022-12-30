@@ -3492,7 +3492,7 @@ if ($result->num_rows > 0) {
              
              /*----------------------------------------------------------- Dates Block_list ----------------------------------------------------*/
 			
-			case 'dates_block_list';
+			case 'dates_block_list':
 			//creating a query
 	        $stmt = $conn->prepare("SELECT id, start_date, end_date, status, pid FROM block_dates");
 	
@@ -3521,7 +3521,7 @@ if ($result->num_rows > 0) {
 			
 			/*----------------------------------------------------------- Delete Block dates ----------------------------------------------------*/
  
-                 case 'delete_blockdates';
+                 case 'delete_blockdates':
                 			
                 			$ID = $_POST['id'];
                 
@@ -3578,7 +3578,7 @@ if ($result->num_rows > 0) {
 					break;
 
 					/*----------------------------------------------------------- Get Practitioner id via practitioner name ----------------------------------------------------*/
-							case 'get_practitioner_id_vi_name';
+							case 'get_practitioner_id_vi_name':
 										
 							$response = array();
 							if($_POST['fullname']){
@@ -3612,7 +3612,7 @@ if ($result->num_rows > 0) {
 									break;
 
 							/*----------------------------------------------------------- Get cancel status va booking id ----------------------------------------------------*/
-							case 'get_cancel_status_via_bid';
+							case 'get_cancel_status_via_bid':
 												
 							$response = array();
 							if($_POST['booking_id']){
@@ -3644,7 +3644,7 @@ if ($result->num_rows > 0) {
 									break;
 
 					//----------------------------------------- Upload Profile Image -------------------------------------------------------
-					case 'update_user_picc';
+					case 'update_user_picc':
 
 						if($_SERVER['REQUEST_METHOD']=='POST'){
  
