@@ -3606,11 +3606,11 @@ if ($result->num_rows > 0) {
 							$response = array();
 							if($_POST['booking_id']){
 								$uid = $_POST['uid'];
-								$booking_id = $_POST['booking_id'];
 								$booking_type = $_POST['booking_type'];
+								$booking_id = $_POST['booking_id'];
 								$stts = "0";
-								$stmt = $conn->prepare("SELECT id, status FROM cancel_request WHERE booking_id = ? AND uid = ? AND booking_type = ? AND status = ?");
-								$stmt->bind_param("ssss",$booking_id,$uid,$booking_type,$stts);
+								$stmt = $conn->prepare("SELECT id, status FROM cancel_request WHERE booking_type = ? AND booking_id = ? AND uid = ? AND status = ?");
+								$stmt->bind_param("ssss",$booking_type,$booking_id,$uid,,$stts);
 								$result = $stmt->execute();
 							if($result == TRUE){
 									$response['error'] = false;
