@@ -6,9 +6,9 @@
  
  if (strpos($getdays, "-") !== false) {
     echo "Expired";
- } else if ($getdays == "0"){
+ } else if ($getdays == 0){
     echo "Last Date";
  } else {
     echo $getdays;
  }
- //echo $getdays;
+ echo $getdays;
