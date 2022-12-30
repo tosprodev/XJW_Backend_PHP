@@ -3609,8 +3609,7 @@ if ($result->num_rows > 0) {
 								$booking_type = $_POST['booking_type'];
 								$booking_id = $_POST['booking_id'];
 								$stts = "0";
-								//$stmt = $conn->prepare("SELECT id, status FROM cancel_request WHERE booking_type = ? AND booking_id = ? AND uid = ? AND status = ?");
-								$stmt = $conn->prepare("SELECT id, status FROM cancel_request WHERE (booking_type,booking_id,uid,status) VALUE (?,?,?,?)");
+								$stmt = $conn->prepare("SELECT id, status FROM cancel_request WHERE booking_type = ? AND booking_id = ? AND uid = ? AND status = ?");
 								$stmt->bind_param("ssss",$booking_type,$booking_id,$uid,$stts);
 								$result = $stmt->execute();
 							if($result == TRUE){
