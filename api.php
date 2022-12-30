@@ -3644,7 +3644,7 @@ if ($result->num_rows > 0) {
 									break;
 
 					//----------------------------------------- Upload Profile Image -------------------------------------------------------
-					case 'update_user_picc':
+					case 'update_user_picc';
 
 						if($_SERVER['REQUEST_METHOD']=='POST'){
  
