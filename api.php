@@ -3684,6 +3684,7 @@ if ($result->num_rows > 0) {
 							$Sql_Query = "UPDATE users SET user_dp = '$actualpath' WHERE id = $id";
             
 							if(mysqli_query($conn,$Sql_Query)){
+							file_put_contents($path,base64_decode($image));
 							echo 'Service Updated Successfully';
 							} else {
 							echo 'Something went wrong';
