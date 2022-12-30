@@ -3672,7 +3672,7 @@ if ($result->num_rows > 0) {
 							
 							$path = "assets/upload/$id.png";
 							
-							$actualpath = "$baseurl."/".$path";
+							$actualpath = $baseurl."/".$path;
 							
 							//$sql = "INSERT INTO users (user_dp) VALUES ('$actualpath') WHERE id = 22";
 							$Sql = "UPDATE users SET user_dp = '$actualpath' WHERE id = $id";
