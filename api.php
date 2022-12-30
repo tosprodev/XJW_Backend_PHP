@@ -3669,7 +3669,6 @@ if ($result->num_rows > 0) {
 							} else {
 							unlink($path_user.$file_name);
 							}*/
-							echo "Start Uploading...";
 							$path = "assets/upload/$id.png";
 							
 							$actualpath = $baseurl."/".$path;
