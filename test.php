@@ -15,4 +15,4 @@
 if (str_contains($string, 'lazy')) {
     echo "The string 'lazy' was found in the string\n";
 }
- //echo $getdays;
+ echo $getdays;
