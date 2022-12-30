@@ -2335,7 +2335,21 @@ case 'get_prices';
 				"scharge"=>$row['scharge'],
 				"tfee"=>$row['tfee'],
 				"total"=>$row['total'],
-				"status"=>$row['status'],
+
+				$now = time();
+				$your_date = strtotime($row['BDate']);
+				$datediff =  $your_date - $now;
+				$getdays = round($datediff / (60 * 60 * 24));
+				
+				if ($getdays == -0) {
+					$mystatus = 5;
+				} else if (strpos($getdays, "-") !== false){
+				   $mystatus = 5;
+				} else {
+					$mystatus = $row['status'];
+				}
+
+				"status"=>$mystatus,
 				"payment_status"=>$row['payment_status'],
 				"transaction_id"=>$row['transaction_id'],
 				"invoice_id"=>$row['invoice_id'],
