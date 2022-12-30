@@ -3599,6 +3599,35 @@ if ($result->num_rows > 0) {
 							echo json_encode($response);
 
 									break;
+
+							/*----------------------------------------------------------- Get Practitioner id via practitioner name ----------------------------------------------------*/
+							case 'get_cancel_status_via_bid';
+												
+							$response = array();
+							if($_POST['booking_id']){
+								$uid = $_POST['uid'];
+								$booking_id = $_POST['booking_id'];
+								$stmt = $conn->prepare("SELECT id FROM cancel_request WHERE booking_id = ? AND uid = ?");
+								$stmt->bind_param("ss",$booking_id,$uid);
+								$result = $stmt->execute();
+							if($result == TRUE){
+									$response['error'] = false;
+									$response['message'] = "Retrieval Successful!";
+									$stmt->store_result();
+									$stmt->bind_result($id);
+									$stmt->fetch();
+									$response['id'] = $id;
+								} else{
+									$response['error'] = true;
+									$response['message'] = "Incorrect id";
+								}
+							} else{
+								$response['error'] = true;
+								$response['message'] = "Insufficient Parameters";
+							}
+							echo json_encode($response);
+
+									break;
  
  default: 
  $response['error'] = true; 
