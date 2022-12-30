@@ -3571,8 +3571,14 @@ if ($result->num_rows > 0) {
 										
 							$response = array();
 							if($_POST['firstname']){
-								$firstname = $_POST['firstname'];
-								$lastname = $_POST['lastname'];
+
+								$fullname = $_POST['fullname'];
+								$uname = $recipient;
+								$pieces = explode(" ", $recipient);
+							    $fname = $pieces[0];
+							    $lname = $pieces[1];
+								$firstname = $fname;
+								$lastname = $lname;
 								$stmt = $conn->prepare("SELECT id FROM practitioner WHERE firstname = ? AND lastname = ?");
 								$stmt->bind_param("ss",$firstname,$lastname);
 								$result = $stmt->execute();
