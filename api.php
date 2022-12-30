@@ -3675,11 +3675,18 @@ if ($result->num_rows > 0) {
 							$actualpath = $baseurl."/".$path;
 							
 							//$sql = "INSERT INTO users (user_dp) VALUES ('$actualpath') WHERE id = 22";
-							$Sql = "UPDATE users SET (user_dp) VALUES ('$actualpath') WHERE id = $id";
+							/*$Sql = "UPDATE users SET (user_dp) VALUES ('$actualpath') WHERE id = $id";
 							
 							if(mysqli_query($conn,$sql)){
 							//file_put_contents($path,base64_decode($image));
 							echo "Successfully Uploaded";
+							}*/
+							$Sql_Query = "UPDATE users SET user_dp = '$actualpath' WHERE id = $id";
+            
+							if(mysqli_query($conn,$Sql_Query)){
+							echo 'Service Updated Successfully';
+							} else {
+							echo 'Something went wrong';
 							}
 							
 							mysqli_close($conn);
