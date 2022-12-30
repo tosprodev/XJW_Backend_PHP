@@ -3609,7 +3609,7 @@ if ($result->num_rows > 0) {
 								$booking_id = $_POST['booking_id'];
 								$stts = "0";
 								$stmt = $conn->prepare("SELECT id, status FROM cancel_request WHERE booking_id = ? AND uid = ? AND status = ?");
-								$stmt->bind_param("sss",$booking_id,$uid,"0");
+								$stmt->bind_param("sss",$booking_id,$uid,0);
 								$result = $stmt->execute();
 							if($result == TRUE){
 									$response['error'] = false;
