@@ -3550,13 +3550,20 @@ if ($result->num_rows > 0) {
 						$status = $_POST['status'];
 						$create_date = $nowdt;
 
-						$result = mysql_query("SELECT id FROM cancel_request WHERE booking_type = '".$booking_type."' AND booking_id = '".$booking_id."'");
+						/*$result = mysql_query("SELECT id FROM cancel_request WHERE booking_type = '".$booking_type."' AND booking_id = '".$booking_id."'");
 						if (mysql_num_rows($result)){
 							// Rows exist
 							echo "Rows exist";
 						} else {
 							echo "Rows Not exist";
-						}
+						}*/
+
+						if(mysql_num_rows(mysql_query("SELECT id FROM cancel_request WHERE booking_type = '$booking_type'"))){
+
+							// Code inside if block if userid is already there
+							echo "Rows exist";
+							
+							}
 						
 						/*$Sql_Query = "insert into cancel_request (booking_type,booking_id,request_note,uid,practitioner_id,status,create_date) values ('$booking_type','$booking_id','$request_note','$uid','$practitioner_id','$status','$create_date')";
 							if(mysqli_query($conn,$Sql_Query)){
