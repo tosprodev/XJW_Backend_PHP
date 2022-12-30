@@ -3558,11 +3558,19 @@ if ($result->num_rows > 0) {
 							echo "Rows Not exist";
 						}*/
 
-						$result = mysql_query("SELECT COUNT(`id`) as count FROM `cancel_request` WHERE `booking_id` = '".$booking_id."'");
-						$row = mysql_fetch_array($conn,$result);
-						if ($row ['count']){
-							// Rows exist
+						$stmt = $conn->prepare("SELECT * FROM cancel_request WHERE booking_type = ? AND booking_id = ?");
+						$stmt->bind_param("ss",$booking_type, $booking_id);
+						
+						$stmt->execute();
+						
+						$stmt->store_result();
+						
+						if($stmt->num_rows > 0){
+							echo "Rows exist";
+						} else {
+							echo "Rows NOT exist";
 						}
+						
 						
 						/*$Sql_Query = "insert into cancel_request (booking_type,booking_id,request_note,uid,practitioner_id,status,create_date) values ('$booking_type','$booking_id','$request_note','$uid','$practitioner_id','$status','$create_date')";
 							if(mysqli_query($conn,$Sql_Query)){
