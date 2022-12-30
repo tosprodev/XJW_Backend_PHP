@@ -2219,7 +2219,7 @@ case 'get_prices';
 				$start = 0; 
 				$limit = 3; 
 				$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM booking WHERE uid = '$uid'"));
-				$page_limit = $total/$limit; 
+				$page_limit = ceil ($total/$limit); 
 				if($page<=$page_limit){
 				$start = ($page - 1) * $limit; 
 				$sql = "SELECT * FROM booking WHERE uid = '$uid' limit $start, $limit";
