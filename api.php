@@ -3573,8 +3573,7 @@ if ($result->num_rows > 0) {
 							if($_POST['fullname']){
 
 								$fullname = $_POST['fullname'];
-								$uname = $recipient;
-								$pieces = explode(" ", $recipient);
+								$pieces = explode(" ", $fullname);
 							    $fname = $pieces[0];
 							    $lname = $pieces[1];
 								$firstname = $fname;
