@@ -10,9 +10,10 @@
  } else {
     echo "Expired";
  }*/
- $string = 'The lazy fox jumped over the fence';
-
-if (str_contains($string, 'lazy')) {
-    echo "The string 'lazy' was found in the string\n";
-}
+ $haystack = 'How are you?';
+ $needle   = 'are';
+ 
+ if (strpos($haystack, $needle) !== false) {
+     echo 'true';
+ }
  //echo $getdays;
