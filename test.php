@@ -5,7 +5,7 @@
  $getdays = round($datediff / (60 * 60 * 24));
 if (str_contains($getdays, '-')) {
     echo "Expired";
- } else if ($getdays == 0){
+ } else if ($getdays == "0"){
     echo "Last Date";
  } else {
     echo "Expired";
