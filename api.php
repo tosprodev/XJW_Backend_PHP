@@ -3648,9 +3648,9 @@ if ($result->num_rows > 0) {
 
 						if($_SERVER['REQUEST_METHOD']=='POST'){
  
+							$id = $_POST['id'];
 							$image = $_POST['image'];
-							
-							$sql ="SELECT id FROM users ORDER BY id ASC";
+							/*$sql ="SELECT id FROM users ORDER BY id ASC";
 							
 							$res = mysqli_query($conn,$sql);
 							
@@ -3658,7 +3658,7 @@ if ($result->num_rows > 0) {
 							
 							while($row = mysqli_fetch_array($res)){
 							$id = $row['id'];
-							}
+							}*/
 
 							/*$file_name = 'sample.jpg';
 							$path_user = '/wp-content/plugins/est_collaboration/Files/'.$send_id.'/';
@@ -3674,9 +3674,10 @@ if ($result->num_rows > 0) {
 							
 							$actualpath = "$baseurl.$path";
 							
-							$sql = "INSERT INTO users (user_dp) VALUES ('$actualpath')";
+							//$sql = "INSERT INTO users (user_dp) VALUES ('$actualpath') WHERE id = 22";
+							$Sql = "UPDATE users SET user_dp = '$actualpath' WHERE id = $id";
 							
-							if(mysqli_query($con,$sql)){
+							if(mysqli_query($conn,$sql)){
 							file_put_contents($path,base64_decode($image));
 							echo "Successfully Uploaded";
 							}
