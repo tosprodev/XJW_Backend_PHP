@@ -3570,7 +3570,7 @@ if ($result->num_rows > 0) {
 							case 'get_practitioner_id_vi_name';
 										
 							$response = array();
-							if($_POST['firstname']){
+							if($_POST['fullname']){
 
 								$fullname = $_POST['fullname'];
 								$uname = $recipient;
