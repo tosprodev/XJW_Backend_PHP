@@ -3549,8 +3549,16 @@ if ($result->num_rows > 0) {
 						$practitioner_id = $_POST['practitioner_id'];
 						$status = $_POST['status'];
 						$create_date = $nowdt;
+
+						$result = mysql_query("SELECT id FROM cancel_request WHERE booking_type = '".$booking_type."' AND booking_id = '".$booking_id."'");
+						if (mysql_num_rows($result)){
+							// Rows exist
+							echo "Rows exist";
+						} else {
+							echo "Rows Not exist";
+						}
 						
-						$Sql_Query = "insert into cancel_request (booking_type,booking_id,request_note,uid,practitioner_id,status,create_date) values ('$booking_type','$booking_id','$request_note','$uid','$practitioner_id','$status','$create_date')";
+						/*$Sql_Query = "insert into cancel_request (booking_type,booking_id,request_note,uid,practitioner_id,status,create_date) values ('$booking_type','$booking_id','$request_note','$uid','$practitioner_id','$status','$create_date')";
 							if(mysqli_query($conn,$Sql_Query)){
 							echo 'Request added Successfully';
 
@@ -3559,7 +3567,7 @@ if ($result->num_rows > 0) {
 
 							echo 'Something went wrong. Please try again';
 
-							}
+							}*/
 						} else {
 							echo 'Invalid statement';
 						}
