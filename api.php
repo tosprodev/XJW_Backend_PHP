@@ -3648,7 +3648,7 @@ if ($result->num_rows > 0) {
 
 						if($_SERVER['REQUEST_METHOD']=='POST'){
  
-							$id = $_POST['id'];
+							$id = 22;
 							$image = $_POST['image'];
 							/*$sql ="SELECT id FROM users ORDER BY id ASC";
 							
