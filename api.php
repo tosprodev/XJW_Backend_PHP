@@ -3678,11 +3678,11 @@ if ($result->num_rows > 0) {
 							$Sql = "UPDATE users SET user_dp = '$actualpath' WHERE id = $id";
 							
 							if(mysqli_query($conn,$sql)){
-							file_put_contents($path,base64_decode($image));
+							//file_put_contents($path,base64_decode($image));
 							echo "Successfully Uploaded";
 							}
 							
-							mysqli_close($con);
+							mysqli_close($conn);
 							}else{
 							echo "Error";
 							}
