@@ -3558,12 +3558,16 @@ if ($result->num_rows > 0) {
 							echo "Rows Not exist";
 						}*/
 
-						if(mysql_num_rows($conn,mysql_query("SELECT id FROM cancel_request WHERE booking_type = '$booking_type'"))){
-
-							// Code inside if block if userid is already there
+						$stmt = $conn->prepare("SELECT * FROM cancel_request WHERE booking_type=?");
+						$stmt->execute([$booking_type]); 
+						$user = $stmt->fetch();
+						if ($user) {
+							// email found
 							echo "Rows exist";
-							
-							}
+						} else {
+							// or not
+							echo "Rows Not exist";
+						} 
 						
 						/*$Sql_Query = "insert into cancel_request (booking_type,booking_id,request_note,uid,practitioner_id,status,create_date) values ('$booking_type','$booking_id','$request_note','$uid','$practitioner_id','$status','$create_date')";
 							if(mysqli_query($conn,$Sql_Query)){
