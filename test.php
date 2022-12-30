@@ -1,7 +1,7 @@
 <?php 
  $now = time(); // or your date as well
  $your_date = strtotime("30-12-2022");
- $datediff =  $your_date - $now;
+ $datediff =  $now - $your_date;
  $getdays = round($datediff / (60 * 60 * 24));
  
  if (strpos($getdays, "-") !== false) {
