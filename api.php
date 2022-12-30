@@ -2317,94 +2317,32 @@ case 'get_prices';
 				$result = mysqli_query($conn,$sql); 
 				$res = array(); 
 				while($row = mysqli_fetch_array($result)){
-				$now = time();
-				$your_date = strtotime($row['BDate']);
-				$datediff =  $your_date - $now;
-				$getdays = round($datediff / (60 * 60 * 24));
 				
-				if ($getdays == -0) {
-					$mystatus = 5;
-					array_push($res, array(
-						"id"=>$row['id'],
-						"service"=>$row['service'],
-						"fullname"=>$row['fullname'],
-						"dob"=>$row['dob'],
-						"email"=>$row['email'],
-						"address"=>$row['address'],
-						"health_provider"=>$row['health_provider'],
-						"health_provider_no"=>$row['health_provider_no'],
-						"practitioner_gender"=>$row['practitioner_gender'],
-						"practitioner"=>$row['practitioner'],
-						"BDate"=>$row['BDate'],
-						"duration"=>$row['duration'],
-						"time_slot"=>$row['time_slot'],
-						"add_req"=>$row['add_req'],
-						"scharge"=>$row['scharge'],
-						"tfee"=>$row['tfee'],
-						"total"=>$row['total'],
-						"status"=>$mystatus,
-						"payment_status"=>$row['payment_status'],
-						"transaction_id"=>$row['transaction_id'],
-						"invoice_id"=>$row['invoice_id'],
-						"uid"=>$row['uid'],
-						"cur_time"=>$row['cur_time'])
-						);
-				} else if (strpos($getdays, "-") !== false){
-				   $mystatus = 5;
-				   array_push($res, array(
-					"id"=>$row['id'],
-					"service"=>$row['service'],
-					"fullname"=>$row['fullname'],
-					"dob"=>$row['dob'],
-					"email"=>$row['email'],
-					"address"=>$row['address'],
-					"health_provider"=>$row['health_provider'],
-					"health_provider_no"=>$row['health_provider_no'],
-					"practitioner_gender"=>$row['practitioner_gender'],
-					"practitioner"=>$row['practitioner'],
-					"BDate"=>$row['BDate'],
-					"duration"=>$row['duration'],
-					"time_slot"=>$row['time_slot'],
-					"add_req"=>$row['add_req'],
-					"scharge"=>$row['scharge'],
-					"tfee"=>$row['tfee'],
-					"total"=>$row['total'],
-					"status"=>$mystatus,
-					"payment_status"=>$row['payment_status'],
-					"transaction_id"=>$row['transaction_id'],
-					"invoice_id"=>$row['invoice_id'],
-					"uid"=>$row['uid'],
-					"cur_time"=>$row['cur_time'])
-					);
-				} else {
-					$mystatus = $row['status'];
-					array_push($res, array(
-						"id"=>$row['id'],
-						"service"=>$row['service'],
-						"fullname"=>$row['fullname'],
-						"dob"=>$row['dob'],
-						"email"=>$row['email'],
-						"address"=>$row['address'],
-						"health_provider"=>$row['health_provider'],
-						"health_provider_no"=>$row['health_provider_no'],
-						"practitioner_gender"=>$row['practitioner_gender'],
-						"practitioner"=>$row['practitioner'],
-						"BDate"=>$row['BDate'],
-						"duration"=>$row['duration'],
-						"time_slot"=>$row['time_slot'],
-						"add_req"=>$row['add_req'],
-						"scharge"=>$row['scharge'],
-						"tfee"=>$row['tfee'],
-						"total"=>$row['total'],
-						"status"=>$mystatus,
-						"payment_status"=>$row['payment_status'],
-						"transaction_id"=>$row['transaction_id'],
-						"invoice_id"=>$row['invoice_id'],
-						"uid"=>$row['uid'],
-						"cur_time"=>$row['cur_time'])
-						);
-				}
-				
+				array_push($res, array(
+				"id"=>$row['id'],
+				"service"=>$row['service'],
+				"fullname"=>$row['fullname'],
+				"dob"=>$row['dob'],
+				"email"=>$row['email'],
+				"address"=>$row['address'],
+				"health_provider"=>$row['health_provider'],
+				"health_provider_no"=>$row['health_provider_no'],
+				"practitioner_gender"=>$row['practitioner_gender'],
+				"practitioner"=>$row['practitioner'],
+				"BDate"=>$row['BDate'],
+				"duration"=>$row['duration'],
+				"time_slot"=>$row['time_slot'],
+				"add_req"=>$row['add_req'],
+				"scharge"=>$row['scharge'],
+				"tfee"=>$row['tfee'],
+				"total"=>$row['total'],
+				"status"=>$row['status'],
+				"payment_status"=>$row['payment_status'],
+				"transaction_id"=>$row['transaction_id'],
+				"invoice_id"=>$row['invoice_id'],
+				"uid"=>$row['uid'],
+				"cur_time"=>$row['cur_time'])
+				);
 				}
 				echo json_encode($res);
 				}else{
