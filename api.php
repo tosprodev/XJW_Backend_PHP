@@ -3536,6 +3536,64 @@ if ($result->num_rows > 0) {
                  echo 'Something went wrong';
                  }
                  break;
+
+				 /*----------------------------------------------------------- Add cancellation request ----------------------------------------------------*/
+ 
+					case 'add_new_cancellation_request': 
+					
+						if (isset($_POST['uid'])) {
+						$booking_type = $_POST['booking_type'];
+						$booking_id = $_POST['booking_id'];
+						$request_note = $_POST['request_note'];
+						$uid = $_POST['uid'];
+						$practitioner_id = $_POST['practitioner_id'];
+						$status = $_POST['status'];
+						$create_date = $nowdt;
+						
+						$Sql_Query = "insert into addresses (booking_type,booking_id,request_note,uid,practitioner_id,status,create_date) values ('$booking_type','$booking_id','$request_note','$uid','$practitioner_id','$status','$create_date')";
+							if(mysqli_query($conn,$Sql_Query)){
+							echo 'Request added Successfully';
+
+							}
+							else{
+
+							echo 'Something went wrong. Please try again';
+
+							}
+						} else {
+							echo 'Invalid statement';
+						}
+
+					break;
+
+					/*----------------------------------------------------------- Get Practitioner id via practitioner name ----------------------------------------------------*/
+							case 'get_practitioner_id_vi_name';
+										
+							$response = array();
+							if($_POST['firstname']){
+								$firstname = $_POST['firstname'];
+								$lastname = $_POST['lastname'];
+								$stmt = $conn->prepare("SELECT id FROM practitioner WHERE firstname = ? AND lastname = ?");
+								$stmt->bind_param("ss",$firstname,$lastname);
+								$result = $stmt->execute();
+							if($result == TRUE){
+									$response['error'] = false;
+									$response['message'] = "Retrieval Successful!";
+									$stmt->store_result();
+									$stmt->bind_result($id);
+									$stmt->fetch();
+									$response['id'] = $id;
+								} else{
+									$response['error'] = true;
+									$response['message'] = "Incorrect id";
+								}
+							} else{
+								$response['error'] = true;
+								$response['message'] = "Insufficient Parameters";
+							}
+							echo json_encode($response);
+
+									break;
  
  default: 
  $response['error'] = true; 
