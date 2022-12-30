@@ -3169,7 +3169,7 @@ if ($result->num_rows > 0) {
 				$start = 0; 
 				$limit = 3; 
 				$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM service WHERE NOT sevice_name = 'Choose Service'"));
-				$page_limit = $total/$limit; 
+				$page_limit = ceil ($total/$limit); 
 				if($page<=$page_limit){
 				$start = ($page - 1) * $limit; 
 				$sql = "SELECT * from service WHERE NOT sevice_name = 'Choose Service' limit $start, $limit";
