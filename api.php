@@ -3642,6 +3642,51 @@ if ($result->num_rows > 0) {
 							echo json_encode($response);
 
 									break;
+
+					//----------------------------------------- Upload Profile Image -------------------------------------------------------
+					case 'update_user_picc':
+
+						if($_SERVER['REQUEST_METHOD']=='POST'){
+ 
+							$image = $_POST['image'];
+							
+							$sql ="SELECT id FROM users ORDER BY id ASC";
+							
+							$res = mysqli_query($conn,$sql);
+							
+							$id = 0;
+							
+							while($row = mysqli_fetch_array($res)){
+							$id = $row['id'];
+							}
+
+							/*$file_name = 'sample.jpg';
+							$path_user = '/wp-content/plugins/est_collaboration/Files/'.$send_id.'/';
+							if (!file_exists($path_user.$file_name)) 
+							{                   
+							if (mkdir( $path_user,0777,false )) {
+							}
+							} else {
+							unlink($path_user.$file_name);
+							}*/
+							
+							$path = "/assets/upload/$id.png";
+							
+							$actualpath = "$baseurl.$path";
+							
+							$sql = "INSERT INTO users (user_dp) VALUES ('$actualpath')";
+							
+							if(mysqli_query($con,$sql)){
+							file_put_contents($path,base64_decode($image));
+							echo "Successfully Uploaded";
+							}
+							
+							mysqli_close($con);
+							}else{
+							echo "Error";
+							}
+
+						break;
  
  default: 
  $response['error'] = true; 
