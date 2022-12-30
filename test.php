@@ -4,11 +4,11 @@
  $datediff =  $your_date - $now;
  $getdays = round($datediff / (60 * 60 * 24));
  
- if (strpos($getdays, "-") !== false) {
-    echo "Expired";
- } else if ($getdays == 0){
+ if ($getdays == -0) {
     echo "Last Date";
+ } else if (strpos($getdays, "-") !== false){
+    echo "Expired";
  } else {
     echo $getdays;
  }
- echo $getdays;
+ //echo $getdays;
