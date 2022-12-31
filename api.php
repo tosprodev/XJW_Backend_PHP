@@ -3648,48 +3648,19 @@ if ($result->num_rows > 0) {
 
 						if($_SERVER['REQUEST_METHOD']=='POST'){
  
-							$id = 22;
-							//$id = $_POST['id'];
+							$id = $_POST['id'];
 							$image = $_POST['image'];
-							/*$sql ="SELECT id FROM users ORDER BY id ASC";
-							
-							$res = mysqli_query($conn,$sql);
-							
-							$id = 0;
-							
-							while($row = mysqli_fetch_array($res)){
-							$id = $row['id'];
-							}*/
-
-							/*$file_name = 'sample.jpg';
-							$path_user = '/wp-content/plugins/est_collaboration/Files/'.$send_id.'/';
-							if (!file_exists($path_user.$file_name)) 
-							{                   
-							if (mkdir( $path_user,0777,false )) {
-							}
-							} else {
-							unlink($path_user.$file_name);
-							}*/
+					
 							$path = "assets/upload/$id.png";
 							
 							$actualpath = $baseurl."/".$path;
 							
-							//$sql = "INSERT INTO users (user_dp) VALUES ('$actualpath') WHERE id = 22";
 							$sql = "UPDATE users SET user_dp = '$actualpath' WHERE id = $id";
 							
 							if(mysqli_query($conn,$sql)){
 							file_put_contents($path,base64_decode($image));
 							echo "Successfully Uploaded";
 							}
-
-							/*$sql = "UPDATE users SET user_dp = '$actualpath' WHERE id = $id";
-            
-							if(mysqli_query($conn,$sql)){
-							file_put_contents($path,base64_decode($image));
-							echo 'Successfully Uploaded';
-							} else {
-							echo 'Something went wrong';
-							}*/
 							
 							mysqli_close($conn);
 							}else{
