@@ -3668,6 +3668,38 @@ if ($result->num_rows > 0) {
 							}
 
 						break;
+
+					/*----------------------------------------------------------- Add new status ----------------------------------------------------*/
+ 
+					case 'add_new_status_u': 
+					
+						if (isset($_POST['title'])) {
+						$title = $_POST['title'];
+						$body = $_POST['body'];
+						$img = $_POST['img'];
+						$cat = $_POST['cat'];
+						$action = $_POST['action'];
+						$uid = $_POST['uid'];
+						$sended = $_POST['sended'];
+						$date = $_POST['date'];
+						$time = $_POST['time'];
+						$status = $_POST['status'];
+
+						$Sql_Query = "insert into notification (title,body,img,cat,action,uid,sended,date,time,status) values ('$title','$body','$img','$cat','$action','$uid','$sended','$date','$time','$status')";
+							if(mysqli_query($conn,$Sql_Query)){
+							echo 'notification added Successfully';
+
+							}
+							else{
+
+							echo 'Something went wrong. Please try again';
+
+							}
+						} else {
+							echo 'Invalid statement';
+						}
+
+					break;
  
  default: 
  $response['error'] = true; 
