@@ -3687,7 +3687,7 @@ if ($result->num_rows > 0) {
 
 						$Sql_Query = "insert into notification (title,body,img,cat,action,uid,sended,date,time,status) values ('$title','$body','$img','$cat','$action','$uid','$sended','$date','$time','$status')";
 							if(mysqli_query($conn,$Sql_Query)){
-							echo 'notification added Successfully';
+							echo 'Notification added Successfully';
 
 							}
 							else{
@@ -3700,6 +3700,39 @@ if ($result->num_rows > 0) {
 						}
 
 					break;
+
+					/*----------------------------------------------------------- Get All notification with pagination ----------------------------------------------------*/
+			
+					case 'get_status_via_pagination';
+					$page = $_GET['page']; 
+					$start = 0; 
+					$limit = 3; 
+					$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM notification WHERE status = '0'"));
+					$page_limit = ceil ($total/$limit); 
+					if($page<=$page_limit){
+					$start = ($page - 1) * $limit; 
+					$sql = "SELECT * from notification WHERE status = '0' limit $start, $limit";
+					$result = mysqli_query($conn,$sql); 
+					$res = array(); 
+					while($row = mysqli_fetch_array($result)){
+					array_push($res, array(
+					"id"=>$row['id'],
+					"title"=>$row['title'],
+					"body"=>$row['body'],
+					"img"=>$row['img'],
+					"cat"=>$row['cat'],
+					"action"=>$row['action'],
+					"uid"=>$row['uid'],
+					"sended"=>$row['sended'],
+					"date"=>$row['date'],
+					"time"=>$row['time'])
+					);
+					}
+					echo json_encode($res);
+					}else{
+							echo "over";
+					}
+				break; 
  
  default: 
  $response['error'] = true; 
