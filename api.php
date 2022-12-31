@@ -3709,7 +3709,7 @@ if ($result->num_rows > 0) {
 					$limit = 3; 
 					$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM notification WHERE status = '0'"));
 					$page_limit = ceil ($total/$limit); 
-					if($page<=$page_limit){
+					if($page<=$page_limit){ 
 					$start = ($page - 1) * $limit; 
 					$sql = "SELECT * from notification WHERE status = '0' limit $start, $limit";
 					$result = mysqli_query($conn,$sql); 
