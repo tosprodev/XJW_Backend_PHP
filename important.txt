@@ -1,0 +1,6 @@
+//Custom Notification Trigger
+#Action 
+1.flash (Webpage plase url for inbuild browser)
+
+#cat
+1.flash (Webpage open url in in build browser)
