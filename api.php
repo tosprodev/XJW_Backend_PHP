@@ -3711,7 +3711,7 @@ if ($result->num_rows > 0) {
 					$uid = $_GET['uid']; 
 					$page = $_GET['page']; 
 					$start = 0; 
-					$limit = 5; 
+					$limit = 8; 
 					$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM notification WHERE uid = '$uid' AND status IN (0,1)"));
 					$page_limit = ceil ($total/$limit); 
 					if($page<=$page_limit){ 
@@ -3739,6 +3739,44 @@ if ($result->num_rows > 0) {
 							echo "over";
 					}
 				break; 
+
+				/*----------------------------------------------------------- Get List Practitioner ----------------------------------------------------*/
+ 
+				case 'get_practitioner_list_pagination';
+					$page = $_GET['page']; 
+					$start = 0; 
+					$limit = 5; 
+					$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM practitioner"));
+					$page_limit = ceil ($total/$limit); 
+					if($page<=$page_limit){ 
+					$start = ($page - 1) * $limit; 
+					$sql = "SELECT * from practitioner limit $start, $limit";
+					$result = mysqli_query($conn,$sql); 
+					$res = array(); 
+					while($row = mysqli_fetch_array($result)){
+					array_push($res, array(
+					"id"=>$row['id'],
+					"firstname"=>$row['firstname'],
+					"lastname"=>$row['lastname'],
+					"email"=>$row['email'],
+					"ccode"=>$row['ccode'],
+					"mobile"=>$row['mobile'],
+					"gender"=>$row['gender'],
+					"service_type"=>$row['service_type'],
+					"professional_exp"=>$row['professional_exp'],
+					"reference"=>$row['reference'],
+					"udp"=>$row['udp'],
+					"auth"=>$row['auth'],
+					"status"=>$row['status'],
+					"doj"=>$row['doj'])
+					);
+					}
+					echo json_encode($res);
+					}else{
+							echo "over";
+					}
+
+					break;
 
 				/*----------------------------------------------------------- Delete Notification ----------------------------------------------------*/
 					case 'delete_notification';
