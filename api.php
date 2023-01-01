@@ -3672,7 +3672,9 @@ if ($result->num_rows > 0) {
 					/*----------------------------------------------------------- Add new status ----------------------------------------------------*/
  
 					case 'add_new_status_u': 
-					
+						date_default_timezone_set('Australia/Victoria');
+						$curdt = date("j-n-Y");
+						$curtme = date('H:i:s');
 						if (isset($_POST['title'])) {
 						$title = $_POST['title'];
 						$body = $_POST['body'];
@@ -3681,8 +3683,10 @@ if ($result->num_rows > 0) {
 						$action = $_POST['action'];
 						$uid = $_POST['uid'];
 						$sended = $_POST['sended'];
-						$date = $_POST['date'];
-						$time = $_POST['time'];
+						//$date = $_POST['date'];
+						$date = $curdt;
+						//$time = $_POST['time'];
+						$time = $curtme;
 						$status = $_POST['status'];
 
 						$Sql_Query = "insert into notification (title,body,img,cat,action,uid,sended,date,time,status) values ('$title','$body','$img','$cat','$action','$uid','$sended','$date','$time','$status')";
@@ -3733,6 +3737,21 @@ if ($result->num_rows > 0) {
 							echo "over";
 					}
 				break; 
+
+				/*----------------------------------------------------------- Delete Notification ----------------------------------------------------*/
+					case 'delete_notification';
+								
+					$ID = $_POST['id'];
+
+					$Sql_Query = "DELETE FROM notification WHERE id = '$ID'";
+
+					if(mysqli_query($conn,$Sql_Query))
+						{
+							echo 'Deleted Successfully';
+						} else {
+							echo 'Something went wrong';
+						}
+					break;
  
  default: 
  $response['error'] = true; 
