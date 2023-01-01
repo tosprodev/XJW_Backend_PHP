@@ -3752,6 +3752,27 @@ if ($result->num_rows > 0) {
 							echo 'Something went wrong';
 						}
 					break;
+
+				//----------------------------------------- Notification Status Change -------------------------------------------------------
+				case 'change_notification_status_user':
+
+					if($_SERVER['REQUEST_METHOD']=='POST'){
+
+						$id = $_POST['id'];
+						$status = $_POST['status'];
+						
+						$sql = "UPDATE notification SET status = '$status' WHERE id = $id";
+						
+						if(mysqli_query($conn,$sql)){
+						echo "Successfully Updated";
+						}
+						
+						mysqli_close($conn);
+						}else{
+						echo "Error";
+						}
+
+					break;
  
  default: 
  $response['error'] = true; 
