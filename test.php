@@ -1,3 +1,3 @@
 <?php 
-echo date("dd-m-Y");
+echo date("D-m-Y");
  //echo $getdays;
