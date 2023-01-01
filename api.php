@@ -3712,11 +3712,11 @@ if ($result->num_rows > 0) {
 					$page = $_GET['page']; 
 					$start = 0; 
 					$limit = 5; 
-					$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM notification WHERE uid = '$uid' AND status = '0'"));
+					$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM notification WHERE uid = '$uid' AND status = '0' or status = '1'"));
 					$page_limit = ceil ($total/$limit); 
 					if($page<=$page_limit){ 
 					$start = ($page - 1) * $limit; 
-					$sql = "SELECT * from notification WHERE uid = '$uid' AND status = '0' limit $start, $limit";
+					$sql = "SELECT * from notification WHERE uid = '$uid' AND status = '0' or status = '1' limit $start, $limit";
 					$result = mysqli_query($conn,$sql); 
 					$res = array(); 
 					while($row = mysqli_fetch_array($result)){
