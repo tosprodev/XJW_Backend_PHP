@@ -3729,7 +3729,8 @@ if ($result->num_rows > 0) {
 					"uid"=>$row['uid'],
 					"sended"=>$row['sended'],
 					"date"=>$row['date'],
-					"time"=>$row['time'])
+					"time"=>$row['time'],
+					"status"=>$row['status'])
 					);
 					}
 					echo json_encode($res);
