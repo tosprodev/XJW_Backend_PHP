@@ -3710,7 +3710,7 @@ if ($result->num_rows > 0) {
 					case 'get_status_via_pagination';
 					$page = $_GET['page']; 
 					$start = 0; 
-					$limit = 3; 
+					$limit = 5; 
 					$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM notification WHERE status = '0'"));
 					$page_limit = ceil ($total/$limit); 
 					if($page<=$page_limit){ 
