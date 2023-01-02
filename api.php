@@ -3833,7 +3833,7 @@ if ($result->num_rows > 0) {
 								$response['error'] = false;
 								$response['message'] = "Retrieval Successful!";
 								$stmt->store_result();
-								$stmt->bind_result($id);
+								$stmt->bind_result($id,$email,$ccode,$mobile,$udp);
 								$stmt->fetch();
 								$response['id'] = $id;
 								$response['email'] = $email;
