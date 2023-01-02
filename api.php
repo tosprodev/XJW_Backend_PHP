@@ -3620,18 +3620,17 @@ if ($result->num_rows > 0) {
 								$booking_type = $_POST['booking_type'];
 								$booking_id = $_POST['booking_id'];
 								$stts = "0";
-								$stmt = $conn->prepare("SELECT id, status, upd FROM cancel_request WHERE booking_type = ? AND booking_id = ? AND uid = ? AND status = ?");
+								$stmt = $conn->prepare("SELECT id, status FROM cancel_request WHERE booking_type = ? AND booking_id = ? AND uid = ? AND status = ?");
 								$stmt->bind_param("ssss",$booking_type,$booking_id,$uid,$stts);
 								$result = $stmt->execute();
 							if($result == TRUE){
 									$response['error'] = false;
 									$response['message'] = "Retrieval Successful!";
 									$stmt->store_result();
-									$stmt->bind_result($id, $status, $upd);
+									$stmt->bind_result($id, $status);
 									$stmt->fetch();
 									$response['id'] = $id;
 									$response['status'] = $status;
-									$response['upd'] = $upd;
 								} else{
 									$response['error'] = true;
 									$response['message'] = "Incorrect id";
@@ -3814,6 +3813,46 @@ if ($result->num_rows > 0) {
 						}
 
 					break;
+
+					/*----------------------------------------------------------- Get Practitioner id via practitioner name ----------------------------------------------------*/
+					case 'get_practitioner_id_and_upd_vi_name':
+										
+						$response = array();
+						if($_POST['fullname']){
+
+							$fullname = $_POST['fullname'];
+							$pieces = explode(" ", $fullname);
+							$fname = $pieces[0];
+							$lname = $pieces[1];
+							$firstname = $fname;
+							$lastname = $lname;
+							$stmt = $conn->prepare("SELECT id, email, ccode, mobile, udp FROM practitioner WHERE firstname = ? AND lastname = ?");
+							$stmt->bind_param("ss",$firstname,$lastname);
+							$result = $stmt->execute();
+						if($result == TRUE){
+								$response['error'] = false;
+								$response['message'] = "Retrieval Successful!";
+								$stmt->store_result();
+								$stmt->bind_result($id);
+								$stmt->fetch();
+								$response['id'] = $id;
+								$response['email'] = $email;
+								$response['ccode'] = $ccode;
+								$response['mobile'] = $mobile;
+								$response['udp'] = $udp;
+							} else{
+								$response['error'] = true;
+								$response['message'] = "Incorrect id";
+							}
+						} else{
+							$response['error'] = true;
+							$response['message'] = "Insufficient Parameters";
+						}
+						echo json_encode($response);
+
+								break;
+
+					
  
  default: 
  $response['error'] = true; 
