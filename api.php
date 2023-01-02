@@ -3620,17 +3620,18 @@ if ($result->num_rows > 0) {
 								$booking_type = $_POST['booking_type'];
 								$booking_id = $_POST['booking_id'];
 								$stts = "0";
-								$stmt = $conn->prepare("SELECT id, status FROM cancel_request WHERE booking_type = ? AND booking_id = ? AND uid = ? AND status = ?");
+								$stmt = $conn->prepare("SELECT id, status, upd FROM cancel_request WHERE booking_type = ? AND booking_id = ? AND uid = ? AND status = ?");
 								$stmt->bind_param("ssss",$booking_type,$booking_id,$uid,$stts);
 								$result = $stmt->execute();
 							if($result == TRUE){
 									$response['error'] = false;
 									$response['message'] = "Retrieval Successful!";
 									$stmt->store_result();
-									$stmt->bind_result($id, $status);
+									$stmt->bind_result($id, $status, $upd);
 									$stmt->fetch();
 									$response['id'] = $id;
 									$response['status'] = $status;
+									$response['upd'] = $upd;
 								} else{
 									$response['error'] = true;
 									$response['message'] = "Incorrect id";
