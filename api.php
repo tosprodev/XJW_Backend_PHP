@@ -3826,19 +3826,22 @@ if ($result->num_rows > 0) {
 							$lname = $pieces[1];
 							$firstname = $fname;
 							$lastname = $lname;
-							$stmt = $conn->prepare("SELECT id, email, ccode, mobile, udp FROM practitioner WHERE firstname = ? AND lastname = ?");
+							$stmt = $conn->prepare("SELECT id, email, ccode, mobile, gender, service_type, professional_exp, udp FROM practitioner WHERE firstname = ? AND lastname = ?");
 							$stmt->bind_param("ss",$firstname,$lastname);
 							$result = $stmt->execute();
 						if($result == TRUE){
 								$response['error'] = false;
 								$response['message'] = "Retrieval Successful!";
 								$stmt->store_result();
-								$stmt->bind_result($id,$email,$ccode,$mobile,$udp);
+								$stmt->bind_result($id,$email,$ccode,$mobile,$gender,$service_type,$professional_exp,$udp);
 								$stmt->fetch();
 								$response['id'] = $id;
 								$response['email'] = $email;
 								$response['ccode'] = $ccode;
 								$response['mobile'] = $mobile;
+								$response['gender'] = $gender;
+								$response['service_type'] = $service_type;
+								$response['professional_exp'] = $professional_exp;
 								$response['udp'] = $udp;
 							} else{
 								$response['error'] = true;
