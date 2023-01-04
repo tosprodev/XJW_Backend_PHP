@@ -3887,6 +3887,8 @@ if ($result->num_rows > 0) {
 				}
 				break;
 
+				/*----------------------------------------------------------- Add Chat User ----------------------------------------------------*/
+
 				case 'add_chat_user': 
 					//date_default_timezone_set('Australia/Victoria');
 					//$curdt = date("j-n-Y");
