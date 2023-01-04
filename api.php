@@ -3779,7 +3779,7 @@ if ($result->num_rows > 0) {
 					break;
 
 				/*----------------------------------------------------------- Delete Notification ----------------------------------------------------*/
-					case 'delete_notification':
+					case 'delete_notification';
 								
 					$ID = $_POST['id'];
 
@@ -3817,7 +3817,7 @@ if ($result->num_rows > 0) {
 					/*----------------------------------------------------------- Get Practitioner id via practitioner name ----------------------------------------------------*/
 					case 'get_practitioner_id_and_upd_vi_name':
 										
-						$response = array():
+						$response = array();
 						if($_POST['fullname']){
 
 							$fullname = $_POST['fullname'];
