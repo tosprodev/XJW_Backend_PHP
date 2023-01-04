@@ -3930,7 +3930,7 @@ if ($result->num_rows > 0) {
 						$date = $_POST['date'];
 						$time = $_POST['time'];
 						$status = $_POST['status'];
-						$Sql_Query = "insert into msgs (cid,cat,msg,sid,date,time,status) values ('$uid','$pid','$msg','$sid','$date','$time','$status')";
+						$Sql_Query = "insert into msgs (cid,cat,msg,sid,date,time,status) values ('$cid','$cat','$msg','$sid','$date','$time','$status')";
 											if(mysqli_query($conn,$Sql_Query)){
 											echo 'New chat added Successfully';
 					
