@@ -3862,7 +3862,7 @@ if ($result->num_rows > 0) {
 				$page = $_GET['page'];  
 				$start = 0; 
 				$limit = 15; 
-				$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM msgs WHERE cid = '$cid'"));
+				$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM msgs WHERE '$cid'"));
 				$page_limit = ceil ($total/$limit); 
 				if($page<=$page_limit){ 
 				$start = ($page - 1) * $limit; 
@@ -3888,7 +3888,6 @@ if ($result->num_rows > 0) {
 				break;
 
 				
-
 					
  
  default: 
