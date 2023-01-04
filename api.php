@@ -3887,6 +3887,33 @@ if ($result->num_rows > 0) {
 				}
 				break;
 
+				/*----------------------------------------------------------- Get Chat List ----------------------------------------------------*/
+ 
+				case 'get_chat_list';
+				$uid = $_GET['uid'];
+				$page = $_GET['page'];  
+				$start = 0; 
+				$limit = 15; 
+				$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM chat WHERE uid = '$uid'"));
+				$page_limit = ceil ($total/$limit); 
+				if($page<=$page_limit){ 
+				$start = ($page - 1) * $limit; 
+				$sql = "SELECT * from chat WHERE uid = '$uid' limit $start, $limit";
+				$result = mysqli_query($conn,$sql); 
+				$res = array(); 
+				while($row = mysqli_fetch_array($result)){
+				array_push($res, array(
+				"id"=>$row['id'],
+				"uid"=>$row['uid'],
+				"pid"=>$row['pid'])
+				);
+				}
+				echo json_encode($res);
+				}else{
+						echo "over";
+				}
+				break;
+
 				/*----------------------------------------------------------- Add Chat User ----------------------------------------------------*/
 
 				case 'add_chat': 
