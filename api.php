@@ -3887,36 +3887,7 @@ if ($result->num_rows > 0) {
 				}
 				break;
 
-				/*----------------------------------------------------------- Add Chat User ----------------------------------------------------*/
- 
-				case 'add_chat_user': 
-					//date_default_timezone_set('Australia/Victoria');
-					//$curdt = date("j-n-Y");
-					//$curtme = date('H:i:s');
-
-					if (isset($_POST['uid'])) {
-						$uid = $_POST['uid'];
-						$pid = $_POST['pid'];
-									$Sql_Query = "insert into chat (uid,pid) values ('$uid','$pid')";
-											if(mysqli_query($conn,$Sql_Query)){
-											echo 'New chat added Successfully';
-					
-											}
-											else{
-					
-											echo 'Something went wrong. Please try again';
-					
-											}
-								
-							
-						} else {
-							echo 'Invalid statement';
-						}
-					
-
-			
-
-				break;
+				
 
 					
  
