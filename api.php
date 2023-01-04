@@ -3858,7 +3858,13 @@ if ($result->num_rows > 0) {
 				 /*----------------------------------------------------------- Get Message List ----------------------------------------------------*/
  
 				 case 'get_msg_list';
-				 
+					$cid = $_GET['cid'];
+					$cid = $_GET['cid'];
+					$page = $_GET['page'];  
+					$start = 0; 
+					$limit = 15; 
+					$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM msgs WHERE cid = '$cid'"));
+					$page_limit = ceil ($total/$limit); 
 				 break;
 
 					
