@@ -3866,7 +3866,21 @@ if ($result->num_rows > 0) {
 					$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM msgs WHERE cid = '$cid'"));
 					$page_limit = ceil ($total/$limit); 
 					if($page<=$page_limit){ 
-						
+						$start = ($page - 1) * $limit; 
+						$sql = "SELECT * from msgs WHERE cid = '$cid' limit $start, $limit";
+						$result = mysqli_query($conn,$sql); 
+						$res = array(); 
+						while($row = mysqli_fetch_array($result)){
+						array_push($res, array(
+						"id"=>$row['id'],
+						"cid"=>$row['cid'],
+						"cat"=>$row['cat'],
+						"msg"=>$row['msg']
+						"sid"=>$row['sid'],,
+						"date"=>$row['date'],
+						"time"=>$row['time'],
+						"status"=>$row['status'])
+						);
 					}
 				 break;
 
