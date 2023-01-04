@@ -3855,6 +3855,73 @@ if ($result->num_rows > 0) {
 
 								break;
 
+				/*----------------------------------------------------------- Get Message List ----------------------------------------------------*/
+ 
+				case 'get_msg_list';
+				$cid = $_GET['cid'];
+				$page = $_GET['page'];  
+				$start = 0; 
+				$limit = 15; 
+				$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM msgs WHERE cid = '$cid'"));
+				$page_limit = ceil ($total/$limit); 
+				if($page<=$page_limit){ 
+				$start = ($page - 1) * $limit; 
+				$sql = "SELECT * from msgs WHERE cid = '$cid' limit $start, $limit";
+				$result = mysqli_query($conn,$sql); 
+				$res = array(); 
+				while($row = mysqli_fetch_array($result)){
+				array_push($res, array(
+				"id"=>$row['id'],
+				"cid"=>$row['cid'],
+				"cat"=>$row['cat'],
+				"msg"=>$row['msg']
+				"sid"=>$row['sid'],,
+				"date"=>$row['date'],
+				"time"=>$row['time'],
+				"status"=>$row['status'])
+				);
+				}
+				echo json_encode($res);
+				}else{
+						echo "over";
+				}
+				break;
+
+				/*----------------------------------------------------------- Add Chat User ----------------------------------------------------*/
+ 
+				case 'add_chat_user': 
+					//date_default_timezone_set('Australia/Victoria');
+					//$curdt = date("j-n-Y");
+					//$curtme = date('H:i:s');
+
+					if (isset($_POST['uid'])) {
+						$uid = $_POST['uid'];
+						$pid = $_POST['pid'];
+						$query = mysqli_query($conn, "SELECT id FROM `chat` WHERE uid='".$uid."' AND pid='".$pid."'");
+							if(mysqli_num_rows($query) > 0){
+									echo 'Chat Exist';
+								}else{
+									$Sql_Query = "insert into chat (uid,pid) values ('$uid','$pid')";
+											if(mysqli_query($conn,$Sql_Query)){
+											echo 'New chat added Successfully';
+					
+											}
+											else{
+					
+											echo 'Something went wrong. Please try again';
+					
+											}
+								}
+							}
+						} else {
+							echo 'Invalid statement';
+						}
+					
+
+			
+
+				break;
+
 					
  
  default: 
