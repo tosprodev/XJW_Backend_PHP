@@ -3866,7 +3866,7 @@ if ($result->num_rows > 0) {
 				 $page_limit = ceil ($total/$limit); 
 				 if($page<=$page_limit){ 
 				 $start = ($page - 1) * $limit; 
-				 $sql = "SELECT * from msgs WHERE cid = '$cid' limit $start, $limit";
+				 $sql = "SELECT * FROM msgs WHERE cid = '$cid' limit $start, $limit";
 				 $result = mysqli_query($conn,$sql); 
 				 $res = array(); 
 				 while($row = mysqli_fetch_array($result)){
