@@ -3871,18 +3871,8 @@ if ($result->num_rows > 0) {
 						$result = mysqli_query($conn,$sql); 
 						$res = array(); 
 						while($row = mysqli_fetch_array($result)){
-						array_push($res, array(
-						"id"=>$row['id'],
-						"cid"=>$row['cid'],
-						"cat"=>$row['cat'],
-						"msg"=>$row['msg']
-						"sid"=>$row['sid'],,
-						"date"=>$row['date'],
-						"time"=>$row['time'],
-						"status"=>$row['status'])
-						);
+						
 					}
-				}
 					}
 				 break;
 
