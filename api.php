@@ -3873,6 +3873,9 @@ if ($result->num_rows > 0) {
 						while($row = mysqli_fetch_array($result)){
 						
 					}
+							echo json_encode($res);
+						}else{
+								echo "over";
 					}
 				 break;
 
