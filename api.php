@@ -3897,10 +3897,6 @@ if ($result->num_rows > 0) {
 					if (isset($_POST['uid'])) {
 						$uid = $_POST['uid'];
 						$pid = $_POST['pid'];
-						$query = mysqli_query($conn, "SELECT id FROM chat WHERE uid = '$uid' AND pid ='$pid'");
-							if(mysqli_num_rows($query) > 0){
-									echo 'Chat Exist';
-								}else{
 									$Sql_Query = "insert into chat (uid,pid) values ('$uid','$pid')";
 											if(mysqli_query($conn,$Sql_Query)){
 											echo 'New chat added Successfully';
@@ -3911,7 +3907,7 @@ if ($result->num_rows > 0) {
 											echo 'Something went wrong. Please try again';
 					
 											}
-								}
+								
 							
 						} else {
 							echo 'Invalid statement';
