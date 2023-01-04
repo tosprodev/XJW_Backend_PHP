@@ -3922,7 +3922,7 @@ if ($result->num_rows > 0) {
 					$curdt = date("j-n-Y");
 					$curtme = date('H:i:s');
 
-					if (isset($_POST['uid'])) {
+					if (isset($_POST['cid'])) {
 						$cid = $_POST['cid'];
 						$cat = $_POST['cat'];
 						$msg = $_POST['msg'];
