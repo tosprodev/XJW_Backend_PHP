@@ -3865,6 +3865,9 @@ if ($result->num_rows > 0) {
 					$limit = 15; 
 					$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM msgs WHERE cid = '$cid'"));
 					$page_limit = ceil ($total/$limit); 
+					if($page<=$page_limit){ 
+						
+					}
 				 break;
 
 					
