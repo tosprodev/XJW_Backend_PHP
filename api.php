@@ -3906,7 +3906,7 @@ if ($result->num_rows > 0) {
 				$res = array(); 
 				while($row = mysqli_fetch_array($result)){
 				array_push($res, array(
-				"id"=>$row['id'],
+				"id"=>$row['chat.id'],
 				"uid"=>$row['uid'],
 				"user_dp"=>$row['user_dp'],
 				"upd"=>$row['upd'],
