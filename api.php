@@ -3906,6 +3906,7 @@ if ($result->num_rows > 0) {
 				array_push($res, array(
 				"id"=>$row['id'],
 				"uid"=>$row['uid'],
+				//"user_dp"=>$row['user_dp'],
 				"pid"=>$row['pid'])
 				);
 				}
