@@ -3898,8 +3898,9 @@ if ($result->num_rows > 0) {
 				$page_limit = ceil ($total/$limit); 
 				if($page<=$page_limit){ 
 				$start = ($page - 1) * $limit; 
-				$sql = "SELECT chat.id , chat.uid, chat.pid , users.user_dp FROM chat , users WHERE chat.uid=users.id limit $start, $limit";
+				//$sql = "SELECT chat.id , chat.uid, chat.pid , users.user_dp FROM chat , users WHERE chat.uid=users.id limit $start, $limit";
 				//$sql = "SELECT chat.*, users.* FROM chat INNER JOIN users ON chat.uid = users.id WHERE chat.uid = $uid limit $start, $limit";
+				$sql = "SELECT * from chat WHERE uid = '$uid' limit $start, $limit";
 				//$sql = "SELECT * from chat WHERE uid = '$uid' limit $start, $limit";
 				$result = mysqli_query($conn,$sql); 
 				$res = array(); 
