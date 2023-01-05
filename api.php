@@ -3898,10 +3898,7 @@ if ($result->num_rows > 0) {
 				$page_limit = ceil ($total/$limit); 
 				if($page<=$page_limit){ 
 				$start = ($page - 1) * $limit; 
-				//$sql = "SELECT chat.id , chat.uid, chat.pid , users.user_dp FROM chat , users WHERE chat.uid=users.id limit $start, $limit";
 				$sql = "SELECT chat.*, users.*, practitioner.* FROM chat INNER JOIN users ON chat.uid = users.id INNER JOIN practitioner ON chat.pid = practitioner.id WHERE chat.uid = $uid limit $start, $limit";
-				//$sql = "SELECT * from chat WHERE uid = '$uid' limit $start, $limit";
-				//$sql = "SELECT * from chat WHERE uid = '$uid' limit $start, $limit";
 				$result = mysqli_query($conn,$sql); 
 				$res = array(); 
 				while($row = mysqli_fetch_array($result)){
@@ -3909,8 +3906,12 @@ if ($result->num_rows > 0) {
 				"id"=>$row['id'],
 				"uid"=>$uid,
 				"user_dp"=>$row['user_dp'],
+				"first_name"=>$row['first_name'],
+				"last_name"=>$row['last_name'],
 				"bid"=>$row['bid'],
 				"udp"=>$row['udp'],
+				"firstname"=>$row['firstname'],
+				"lastname"=>$row['lastname'],
 				"btype"=>$row['btype'],
 				"pid"=>$row['pid'])
 				);
