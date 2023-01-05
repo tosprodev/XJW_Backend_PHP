@@ -3898,8 +3898,8 @@ if ($result->num_rows > 0) {
 				$page_limit = ceil ($total/$limit); 
 				if($page<=$page_limit){ 
 				$start = ($page - 1) * $limit; 
-				$sql = "SELECT a.id, a.uid, a.pid, b.user_dp
-				FROM chat a, users b WHERE a.uid = b.id $start, $limit";
+				$sql = "SELECT chat.id, chat.uid, chat.pid, users.user_dp
+				FROM chat, users WHERE chat.uid = users.id $start, $limit";
 				//$sql = "SELECT chat.*, users.* FROM chat INNER JOIN user ON chat.uid = user.id WHERE user.uid = $uid limit $start, $limit";
 				//$sql = "SELECT * from chat WHERE uid = '$uid' limit $start, $limit";
 				$result = mysqli_query($conn,$sql); 
@@ -3908,7 +3908,7 @@ if ($result->num_rows > 0) {
 				array_push($res, array(
 				"id"=>$row['id'],
 				"uid"=>$row['uid'],
-				//"user_dp"=>$row['user_dp'],
+				"user_dp"=>$row['user_dp'],
 				"pid"=>$row['pid'])
 				);
 				}
