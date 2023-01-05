@@ -3909,6 +3909,7 @@ if ($result->num_rows > 0) {
 				"id"=>$row['id'],
 				"uid"=>$uid,
 				"user_dp"=>$row['user_dp'],
+				"bid"=>$row['bid'],
 				"udp"=>$row['udp'],
 				"pid"=>$row['pid'])
 				);
