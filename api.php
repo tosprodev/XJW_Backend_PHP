@@ -3855,6 +3855,42 @@ if ($result->num_rows > 0) {
 
 								break;
 
+					/*----------------------------------------------------------- Get Practitioner id via practitioner id ----------------------------------------------------*/
+					case 'get_practitioner_id_and_upd_vi_pi':
+										
+						$response = array();
+						if($_POST['pid']){
+
+							$pid = $_POST['pid'];
+							$stmt = $conn->prepare("SELECT id, email, ccode, mobile, gender, service_type, professional_exp, udp FROM practitioner WHERE id = ?");
+							$stmt->bind_param("s",$pid);
+							$result = $stmt->execute();
+						if($result == TRUE){
+								$response['error'] = false;
+								$response['message'] = "Retrieval Successful!";
+								$stmt->store_result();
+								$stmt->bind_result($id,$email,$ccode,$mobile,$gender,$service_type,$professional_exp,$udp);
+								$stmt->fetch();
+								$response['id'] = $id;
+								$response['email'] = $email;
+								$response['ccode'] = $ccode;
+								$response['mobile'] = $mobile;
+								$response['gender'] = $gender;
+								$response['service_type'] = $service_type;
+								$response['professional_exp'] = $professional_exp;
+								$response['udp'] = $udp;
+							} else{
+								$response['error'] = true;
+								$response['message'] = "Incorrect id";
+							}
+						} else{
+							$response['error'] = true;
+							$response['message'] = "Insufficient Parameters";
+						}
+						echo json_encode($response);
+
+								break;
+
 				 /*----------------------------------------------------------- Get Message List ----------------------------------------------------*/
  
 				case 'get_msg_list';
