@@ -3901,7 +3901,7 @@ if ($result->num_rows > 0) {
 				$sql = "SELECT chat.*, users.* 
 					FROM chat 
 					INNER JOIN user ON chat.uid = user.id 
-					WHERE user.uid = $uid  limit $start, $limit";
+					WHERE user.uid = '$uid' limit '$start', '$limit'";
 				//$sql = "SELECT * from chat WHERE uid = '$uid' limit $start, $limit";
 				$result = mysqli_query($conn,$sql); 
 				$res = array(); 
