@@ -3906,10 +3906,10 @@ if ($result->num_rows > 0) {
 				$res = array(); 
 				while($row = mysqli_fetch_array($result)){
 				array_push($res, array(
-				"id"=>$row['chat.id'],
-				"uid"=>$row['uid'],
+				"id"=>$row['id'],
 				"user_dp"=>$row['user_dp'],
 				"upd"=>$row['upd'],
+				"uid"=>$row['uid'],
 				"pid"=>$row['pid'])
 				);
 				}
