@@ -64,7 +64,6 @@ if (mysqli_query($conn, $sql)) {
  
  $user = array(
  'id'=>$id, 
- 'id'=>$id, 
  'first_name'=>$first_name, 
  'last_name'=>$last_name, 
  'gender'=>$gender, 
@@ -144,7 +143,6 @@ if (mysqli_query($conn, $sql)) {
  $stmt->fetch();
  
  $user = array(
- 'id'=>$id, 
  'id'=>$id, 
  'firstname'=>$firstname, 
  'lastname'=>$lastname, 
@@ -857,7 +855,6 @@ if (mysqli_query($conn, $sql)) {
  
  $user = array(
  'id'=>$id, 
- 'id'=>$id, 
  'firstname'=>$firstname, 
  'lastname'=>$lastname, 
  'email'=>$email, 
@@ -999,7 +996,7 @@ else
  
   /*----------------------------------------------------------- Get List Service ----------------------------------------------------*/
  
-case 'get_services_list';
+/*case 'get_services_list';
 			
 			//creating a query
 	$stmt = $conn->prepare("SELECT id, sevice_name FROM service;");
@@ -1023,7 +1020,7 @@ case 'get_services_list';
 	//displaying the result in json format 
     echo json_encode($service_items);
 			
-			break;
+			break;*/
 			
 			/*----------------------------------------------------------- Get List Healthfund Admin ----------------------------------------------------*/
  
@@ -2553,7 +2550,7 @@ case 'get_paypal_percent';
 			break;
 
 
- case 'get_service_id':
+ /*case 'get_service_id':
  $sname = "facial";
  $sql = "SELECT id, sevice_name FROM time_slot WHERE sevice_name='$sname'";
 $result = $conn->query($sql);
@@ -2567,7 +2564,7 @@ if ($result->num_rows > 0) {
   echo "0 results";
 }
  
- break;
+ break;*/
  
  //----------------------------------------------------------------------Admin --------------------------------------------------------
  case 'admin';
@@ -3294,7 +3291,7 @@ if ($result->num_rows > 0) {
                         }
                     } else {
                         $response['error'] = true;
-                        $response['message'] = 'Error: ' . mysqli_error();
+                        $response['message'] = 'Error: ';
                     }
 				  
  } else {
@@ -3478,7 +3475,7 @@ if ($result->num_rows > 0) {
                                     }
                                 } else {
                                     $response['error'] = true;
-                                    $response['message'] = 'Error: ' . mysqli_error();
+                                    $response['message'] = 'Error: ';
                                 }
             				  
              } else {
