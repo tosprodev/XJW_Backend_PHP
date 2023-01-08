@@ -4013,6 +4013,25 @@ if ($result->num_rows > 0) {
 						}
 
 					break;
+
+					/*----------------------------------------------------------- Update Chat Message Status Single ----------------------------------------------------*/
+ 
+					case 'update_chat_message_status_single';
+                			
+					$id = $_POST['id'];
+					$status = $_POST['status'];
+		
+					$Sql_Query = "UPDATE msgs SET status = '$status' WHERE id = $id";
+					
+					if(mysqli_query($conn,$Sql_Query))
+					{
+					echo 'Record Updated Successfully';
+					}
+					else
+					{
+					echo 'Something went wrong';
+					}
+					break;
 					
  
  default: 
