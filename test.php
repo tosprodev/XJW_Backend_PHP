@@ -16,7 +16,7 @@ $sheet = $spreadsheet->getActiveSheet();
 	        //binding results to the query 
 	        $stmt->bind_result($id, $service, $practitioner, $bdate, $duration, $timeslot, $booking_for, $recipient, $address, $note, $scharge, $tfee, $total, $status, $payment_status, $transaction_id, $invoice_id, $uid, $cur_time);
 	
-	        //$booking = array(); 
+	        $temp = array(); 
 	
 	        //traversing through all the result 
 	        while($stmt->fetch()){
@@ -41,7 +41,7 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $temp['uid'] = $uid; 
 		    $temp['cur_time'] = $cur_time; 
 		    array_push($mybooking, $temp);*/
-            $booking = array(
+            $temp = array(
                 'id'=>$id, 
                 'service'=>$service, 
                 'practitioner'=>$practitioner,
@@ -60,6 +60,7 @@ $sheet = $spreadsheet->getActiveSheet();
                 'uid'=>$uid,
                 'cur_time'=>$cur_time
                 );
+                array_push($booking, $temp);
 	        }
 	
 	        //displaying the result in json format 
