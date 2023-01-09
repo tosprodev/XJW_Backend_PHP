@@ -1,4 +1,5 @@
 <?php 
+require 'PhpOffice/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PhpOffice\PhpSpreadsheet\Spreadsheet; 
