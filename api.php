@@ -1,6 +1,8 @@
 <?php 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PhpOffice\PhpSpreadsheet\Spreadsheet; 
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx; 
  require_once 'functions.php';
  require_once 'config.php';
  require_once 'phpmailer/Exception.php';
@@ -4031,6 +4033,14 @@ if ($result->num_rows > 0) {
 					{
 					echo 'Something went wrong';
 					}
+					break;
+
+					/*-------------------------------------------------- Get booking report in excell ---------------------------------*/
+					case 'get_booking_backup';
+
+					$spreadsheet = new Spreadsheet(); 
+					$sheet = $spreadsheet->getActiveSheet(); 
+
 					break;
 					
  
