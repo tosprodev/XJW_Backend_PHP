@@ -20,8 +20,8 @@ $sheet = $spreadsheet->getActiveSheet();
 	
 	        //traversing through all the result 
 	        while($stmt->fetch()){
-	    	/*$temp = array();
-	    	$temp['id'] = $id; 
+	    	$temp = array();
+	    	/*$temp['id'] = $id; 
 		    $temp['service'] = $service; 
 		    $temp['practitioner'] = $practitioner; 
 		    $temp['bdate'] = $bdate; 
