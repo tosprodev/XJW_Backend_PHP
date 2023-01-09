@@ -16,11 +16,11 @@ $sheet = $spreadsheet->getActiveSheet();
 	        //binding results to the query 
 	        $stmt->bind_result($id, $service, $practitioner, $bdate, $duration, $timeslot, $booking_for, $recipient, $address, $note, $scharge, $tfee, $total, $status, $payment_status, $transaction_id, $invoice_id, $uid, $cur_time);
 	
-	        $mybooking = array(); 
+	        //$booking = array(); 
 	
 	        //traversing through all the result 
 	        while($stmt->fetch()){
-	    	$temp = array();
+	    	/*$temp = array();
 	    	$temp['id'] = $id; 
 		    $temp['service'] = $service; 
 		    $temp['practitioner'] = $practitioner; 
@@ -40,18 +40,37 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $temp['invoice_id'] = $invoice_id; 
 		    $temp['uid'] = $uid; 
 		    $temp['cur_time'] = $cur_time; 
-		    array_push($mybooking, $temp);
+		    array_push($mybooking, $temp);*/
+            $booking = array(
+                'id'=>$id, 
+                'service'=>$service, 
+                'practitioner'=>$practitioner,
+                'duration'=>$duration,
+                'timeslot'=>$timeslot,
+                'booking_for'=>$booking_for,
+                'recipient'=>$recipient,
+                'address'=>$address,
+                'note'=>$note,
+                'scharge'=>$scharge,
+                'tfee'=>$tfee,
+                'total'=>$total,
+                'payment_status'=>$payment_status,
+                'transaction_id'=>$transaction_id,
+                'invoice_id'=>$invoice_id,
+                'uid'=>$uid,
+                'cur_time'=>$cur_time
+                );
 	        }
 	
 	        //displaying the result in json format 
-            echo json_encode($mybooking);
+            echo $booking;
 
 // sample data from db
 // call the db get data function here
 //delete line from 18 to 20 and call the db function
-$data_from_db=array();
-$data_from_db[0]=array("name"=>"raja","age"=>23);
-$data_from_db[1]=array("name"=>"raja1","age"=>43);
+//$data_from_db=array();
+//$data_from_db[0]=array("id"=>"$id","age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23);
+//$data_from_db[1]=array("name"=>"raja1","age"=>43);
 
 //set column header
 //set your own column header
