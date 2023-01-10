@@ -34,7 +34,7 @@ $sheet = $spreadsheet->getActiveSheet();
 	        $data_from_db = array(); 
 			while($row = mysqli_fetch_array($result)){
 
-				$id = $row['id'];
+				/*$id = $row['id'];
 				$service = $row['service']; 
 				$practitioner = $row['practitioner'];  
 				$bdate = $row['bdate'];  
@@ -52,35 +52,12 @@ $sheet = $spreadsheet->getActiveSheet();
 				$transaction_id = $row['transaction_id']; , 
 				$invoice_id = $row['invoice_id']; , 
 				$uid = $row['uid']; , 
-				$cur_time = $row['cur_time'];
+				$cur_time = $row['cur_time'];*/
 	        //traversing through all the result 
 	        //while($stmt->fetch()){
-	    	$temp = array();
+	    	//$temp = array();
 	    	//$temp['id'] = $id; 
-			if ($status == "0") {
-				$tstatus = "Booked";
-			} else if ($status == "1") {
-				$tstatus = "Approved";
-			} else if ($status == "1") {
-				$tstatus = "Approved";
-			} else if ($status == "2") {
-				$tstatus = "Completed";
-			} else if ($status == "3") {
-				$tstatus = "Cancelled";
-			}  else if ($status == "4") {
-				$tstatus = "Completed";
-			} 
 			
-			if ($payment_status == "0") {
-				$tpayment_status = "Pending";
-			} else if ($payment_status == "1") {
-				$tpayment_status = "Paid";
-			} else if ($payment_status == "2") {
-				$tpayment_status = "Cancelled";
-			}
-
-			$str = $invoice_id; 
-			$tinvoice_id = substr($str, 4);
 
 		    /*$temp['service'] = $service; 
 		    $temp['practitioner'] = $practitioner; 
@@ -103,6 +80,32 @@ $sheet = $spreadsheet->getActiveSheet();
 		    array_push($data_from_db, $temp);*/
 
 			array_push($data_from_db, array(
+
+				if ($row['status'] == "0") {
+					$tstatus = "Booked";
+				} else if ($status == "1") {
+					$tstatus = "Approved";
+				} else if ($status == "1") {
+					$tstatus = "Approved";
+				} else if ($status == "2") {
+					$tstatus = "Completed";
+				} else if ($status == "3") {
+					$tstatus = "Cancelled";
+				}  else if ($status == "4") {
+					$tstatus = "Completed";
+				} 
+				
+				if ($row['payment_status'] == "0") {
+					$tpayment_status = "Pending";
+				} else if ($payment_status == "1") {
+					$tpayment_status = "Paid";
+				} else if ($payment_status == "2") {
+					$tpayment_status = "Cancelled";
+				}
+	
+				$str = $invoice_id; 
+				$tinvoice_id = substr($str, 4);
+
 				"service"=>$row['service'],
 				"practitioner"=>$row['practitioner'],
 				"bdate"=>$row['bdate'],
@@ -115,8 +118,8 @@ $sheet = $spreadsheet->getActiveSheet();
 				"scharge"=>$row['scharge'],
 				"tfee"=>$row['tfee'],
 				"total"=>$row['total'],
-				"status"=>$row['status'],
-				"payment_status"=>$row['payment_status'],
+				"status"=>$tstatus,
+				"payment_status"=>$tpayment_status,
 				"invoice_id"=>$row['invoice_id'],
 				"uid"=>$row['first_name']." ".$row['last_name'],
 				"cur_time"=>$row['cur_time'])
