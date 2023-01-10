@@ -80,7 +80,7 @@ $sheet = $spreadsheet->getActiveSheet();
 			}
 
 			$str = $invoice_id; 
-			$tinvoice_id = substr($str, 4);*/
+			$tinvoice_id = substr($str, 4);
 
 		    $temp['service'] = $service; 
 		    $temp['practitioner'] = $practitioner; 
