@@ -110,7 +110,7 @@ $writer->save('demo.xlsx');
 //header("location : demo.xlsx") ;
 
 //Read the url
-$url = $_GET[' demo.xlsx'];
+$url = 'demo.xlsx';
 
 //Clear the cache
 clearstatcache();
