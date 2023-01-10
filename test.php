@@ -33,7 +33,20 @@ $sheet = $spreadsheet->getActiveSheet();
 	        //traversing through all the result 
 	        while($stmt->fetch()){
 	    	$temp = array();
-	    	$temp['id'] = $id; 
+	    	//$temp['id'] = $id; 
+			if ($status == "0") {
+				$tstatus = "Booked";
+			} else if ($status == "1") {
+				$tstatus = "Approved";
+			} else if ($status == "1") {
+				$tstatus = "Approved";
+			} else if ($status == "2") {
+				$tstatus = "Completed";
+			} else if ($status == "3") {
+				$tstatus = "Cancelled";
+			}  else if ($status == "4") {
+				$tstatus = "Completed";
+			}  
 		    $temp['service'] = $service; 
 		    $temp['practitioner'] = $practitioner; 
 		    $temp['bdate'] = $bdate; 
@@ -46,7 +59,7 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $temp['scharge'] = $scharge; 
 		    $temp['tfee'] = $tfee; 
 		    $temp['total'] = $total; 
-		    $temp['status'] = $status; 
+		    $temp['status'] = $tstatus; 
 		    $temp['payment_status'] = $payment_status; 
 		    $temp['transaction_id'] = $transaction_id; 
 		    $temp['invoice_id'] = $invoice_id; 
@@ -56,7 +69,7 @@ $sheet = $spreadsheet->getActiveSheet();
 	        }
 
 			$tempb = array();
-	    	$tempb['id'] = "TOTAL :"; 
+	    	//$tempb['id'] = "TOTAL :"; 
 		    $tempb['service'] = ""; 
 		    $tempb['practitioner'] = ""; 
 		    $tempb['bdate'] = ""; 
@@ -82,7 +95,7 @@ $sheet = $spreadsheet->getActiveSheet();
 
 //set column header
 //set your own column header
-$column_header=["id","Service","Practitioner","Booking Date","Duration","Timeslot","Booking For","Recipient","Address","Note","Service Charge","Transaction Fee","Total","Status","Payment Status","Transaction Id","Invoice Id","User Id","Create At"];
+$column_header=["Service","Practitioner","Booking Date","Duration","Timeslot","Booking For","Recipient","Address","Note","Service Charge","Transaction Fee","Total","Status","Payment Status","Transaction Id","Invoice Id","User Id","Create At"];
 $j=1;
 foreach($column_header as $x_value) {
 		$sheet->setCellValueByColumnAndRow($j,1,$x_value);
