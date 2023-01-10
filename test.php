@@ -73,7 +73,7 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $temp['total'] = $total; 
 		    $temp['status'] = $tstatus; 
 		    $temp['payment_status'] = $tpayment_status; 
-		    $temp['transaction_id'] = $transaction_id; 
+		    //$temp['transaction_id'] = $transaction_id; 
 		    $temp['invoice_id'] = $tinvoice_id; 
 		    $temp['uid'] = $uid; 
 		    $temp['cur_time'] = $cur_time; 
@@ -96,7 +96,7 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $tempb['total'] = $get_total; 
 		    $tempb['status'] = ""; 
 		    $tempb['payment_status'] = ""; 
-		    $tempb['transaction_id'] = ""; 
+		    //$tempb['transaction_id'] = ""; 
 		    $tempb['invoice_id'] = ""; 
 		    $tempb['uid'] = ""; 
 		    $tempb['cur_time'] = "";
@@ -107,7 +107,7 @@ $sheet = $spreadsheet->getActiveSheet();
 
 //set column header
 //set your own column header
-$column_header=["Service","Practitioner","Booking Date","Duration","Timeslot","Booking For","Recipient","Address","Note","Service Charge","Transaction Fee","Total","Status","Payment Status","Transaction Id","Invoice Id","User Id","Create At"];
+$column_header=["Service","Practitioner","Booking Date","Duration","Timeslot","Booking For","Recipient","Address","Note","Service Charge","Transaction Fee","Total","Status","Payment Status","Booking Id","User Id","Create At"];
 $j=1;
 foreach($column_header as $x_value) {
 		$sheet->setCellValueByColumnAndRow($j,1,$x_value);
