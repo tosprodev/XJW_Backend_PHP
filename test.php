@@ -75,7 +75,7 @@ $sheet = $spreadsheet->getActiveSheet();
 
 //set column header
 //set your own column header
-$column_header=["Name","Age","Age A","Age B","Age C","Age D","Age E"];
+$column_header=["id","service","practitioner","bdate","duration","timeslot","booking_for","recipient","address","note","scharge","tfee","total","payment_status","transaction_id","invoice_id","uid","cur_time"];
 $j=1;
 foreach($column_header as $x_value) {
 		$sheet->setCellValueByColumnAndRow($j,1,$x_value);
