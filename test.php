@@ -7,7 +7,6 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 $spreadsheet = new Spreadsheet(); 
 $sheet = $spreadsheet->getActiveSheet(); 
 //$uid = $_GET['uid'];
-$j=1;
 
 			$mtable = 'booking';
 			$ssql = "SELECT booking.*, users.* FROM booking INNER JOIN users ON booking.uid = users.id";
