@@ -21,7 +21,7 @@ $sheet = $spreadsheet->getActiveSheet();
 	        //traversing through all the result 
 	        while($stmt->fetch()){
 	    	$temp = array();
-	    	/*$temp['id'] = $id; 
+	    	$temp['id'] = $id; 
 		    $temp['service'] = $service; 
 		    $temp['practitioner'] = $practitioner; 
 		    $temp['bdate'] = $bdate; 
@@ -40,8 +40,8 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $temp['invoice_id'] = $invoice_id; 
 		    $temp['uid'] = $uid; 
 		    $temp['cur_time'] = $cur_time; 
-		    array_push($mybooking, $temp);*/
-            $temp = array(
+		    array_push($mybooking, $temp);
+            /*$temp = array(
                 'id'=>$id, 
                 'service'=>$service, 
                 'practitioner'=>$practitioner,
@@ -61,10 +61,10 @@ $sheet = $spreadsheet->getActiveSheet();
                 'cur_time'=>$cur_time
                 );
                 array_push($booking, $temp);
-	        }
+	        }*/
 	
 	        //displaying the result in json format 
-            echo $booking;
+            echo json_encode($temps);
 
 // sample data from db
 // call the db get data function here
