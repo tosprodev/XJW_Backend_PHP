@@ -62,7 +62,6 @@ $sheet = $spreadsheet->getActiveSheet();
 				"duration"=>$row['duration'],
 				"timeslot"=>$row['timeslot'],
 				"address"=>$row['address'],
-				"note"=>$row['note'],
 				"scharge"=>$row['scharge'],
 				"tfee"=>$row['tfee'],
 				"total"=>$row['total'],
@@ -83,7 +82,6 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $tempb['duration'] = ""; 
 		    $tempb['timeslot'] = ""; 
 		    $tempb['address'] = "";
-		    $tempb['note'] = "";
 		    $tempb['scharge'] = "";
 		    $tempb['tfee'] = "";
 		    $tempb['total'] = "";
@@ -101,7 +99,6 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $tempc['duration'] = ""; 
 		    $tempc['timeslot'] = ""; 
 		    $tempc['address'] = "";
-		    $tempc['note'] = "";
 		    $tempc['scharge'] = "";
 		    $tempc['tfee'] = "";
 		    $tempc['total'] = "TOTAL -> "; 
@@ -117,7 +114,7 @@ $sheet = $spreadsheet->getActiveSheet();
 
 //set column header
 //set your own column header
-$column_header=["Service","Practitioner","Booking Date","Duration","Timeslot","Address","Note","Service Charge","Transaction Fee","Total","Status","Payment Status","Booking Id","User's Name","Create At"];
+$column_header=["Service","Practitioner","Booking Date","Duration","Timeslot","Address","Service Charge","Transaction Fee","Total","Status","Payment Status","Booking Id","User's Name","Create At"];
 $j=1;
 foreach($column_header as $x_value) {
 		$sheet->setCellValueByColumnAndRow($j,1,$x_value);
