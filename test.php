@@ -103,8 +103,8 @@ $sheet = $spreadsheet->getActiveSheet();
 					$tpayment_status = "Cancelled";
 				}
 	
-				$str = $invoice_id; 
-				$tinvoice_id = substr($str, 4);
+				//$str = $invoice_id; 
+				//$tinvoice_id = substr($str, 4);
 
 				"service"=>$row['service'],
 				"practitioner"=>$row['practitioner'],
