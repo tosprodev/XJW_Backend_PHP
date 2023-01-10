@@ -17,7 +17,7 @@ $sheet = $spreadsheet->getActiveSheet();
 			$snd = 2;
 			$tc = $frst + $snd;
 			echo $tc;
-			/*$ssql = "SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM $mtable ORDER BY id DESC";
+			$ssql = "SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM $mtable ORDER BY id DESC";
 	        $stmt = $conn->prepare($ssql);
 	
 	        //executing the query 
@@ -86,6 +86,6 @@ $writer = new Xlsx($spreadsheet);
   
 // Save .xlsx file to the files directory 
 $writer->save('demo.xlsx');
-header("location : demo.xlsx") ;*/
+header("location : demo.xlsx") ;
 
 ?>
