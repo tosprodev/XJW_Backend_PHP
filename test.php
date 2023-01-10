@@ -8,7 +8,7 @@ $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet(); 
 
 //$uid = $_GET['uid'];
-	        /*$stmt = $conn->prepare("SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM booking ORDER BY id DESC");
+	        $stmt = $conn->prepare("SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM booking ORDER BY id DESC");
 	
 	        //executing the query 
 	        $stmt->execute();
@@ -16,7 +16,7 @@ $sheet = $spreadsheet->getActiveSheet();
 	        //binding results to the query 
 	        $stmt->bind_result($id, $service, $practitioner, $bdate, $duration, $timeslot, $booking_for, $recipient, $address, $note, $scharge, $tfee, $total, $status, $payment_status, $transaction_id, $invoice_id, $uid, $cur_time);
 	
-	        $temp = array(); 
+	        $data_from_db = array(); 
 	
 	        //traversing through all the result 
 	        while($stmt->fetch()){
@@ -40,7 +40,7 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $temp['invoice_id'] = $invoice_id; 
 		    $temp['uid'] = $uid; 
 		    $temp['cur_time'] = $cur_time; 
-		    array_push($mybooking, $temp);
+		    array_push($data_from_db, $temp);
             /*$temp = array(
                 'id'=>$id, 
                 'service'=>$service, 
@@ -60,8 +60,8 @@ $sheet = $spreadsheet->getActiveSheet();
                 'uid'=>$uid,
                 'cur_time'=>$cur_time
                 );
-                array_push($booking, $temp);
-	        }*/
+                array_push($booking, $temp);*/
+	        }
 	
 	        //displaying the result in json format 
             //echo json_encode($temps);
@@ -69,9 +69,9 @@ $sheet = $spreadsheet->getActiveSheet();
 // sample data from db
 // call the db get data function here
 //delete line from 18 to 20 and call the db function
-$data_from_db=array();
+//$data_from_db=array();
 //$data_from_db[0]=array("id"=>"$id","age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23);
-$data_from_db[0]=array("name"=>"raja1","age"=>43,"agea"=>43,"ageb"=>43,"agec"=>43,"aged"=>43,"agee"=>43);
+//$data_from_db[0]=array("name"=>"raja1","age"=>43,"agea"=>43,"ageb"=>43,"agec"=>43,"aged"=>43,"agee"=>43);
 
 //set column header
 //set your own column header
