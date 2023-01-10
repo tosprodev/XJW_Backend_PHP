@@ -29,7 +29,7 @@ $sheet = $spreadsheet->getActiveSheet();
 	
 	        //binding results to the query 
 	        //$stmt->bind_result($id, $service, $practitioner, $bdate, $duration, $timeslot, $booking_for, $recipient, $address, $note, $scharge, $tfee, $total, $status, $payment_status, $transaction_id, $invoice_id, $uid, $cur_time);
-			$result = mysqli_query($conn,$sql); 
+			$result = mysqli_query($conn,$ssql); 
 			
 	        $data_from_db = array(); 
 			while($row = mysqli_fetch_array($result)){
@@ -104,7 +104,7 @@ $sheet = $spreadsheet->getActiveSheet();
 
 			array_push($data_from_db, array(
 				"service"=>$row['service'],
-				"practitioner"=>$practitioner,
+				"practitioner"=>$row['practitioner'],
 				"bdate"=>$row['bdate'],
 				"duration"=>$row['duration'],
 				"timeslot"=>$row['timeslot'],
