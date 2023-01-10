@@ -111,7 +111,7 @@ $j=1;
 //set column header
 //set your own column header
 $column_header=["S No.","Service","Practitioner","Booking Date","Duration","Timeslot","Booking For","Recipient","Address","Note","Service Charge","Transaction Fee","Total","Status","Payment Status","Booking Id","User's Name","Create At"];
-
+$j=1;
 foreach($column_header as $x_value) {
 		$sheet->setCellValueByColumnAndRow($j,1,$x_value);
   		$j=$j+1;
