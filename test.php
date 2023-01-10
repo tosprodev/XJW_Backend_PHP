@@ -89,7 +89,7 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $tempc['total'] = "TOTAL -> "; 
 		    $tempc['status'] = "----------"; 
 		    $tempc['payment_status'] = "Booking : ".$get_total_booking;  
-		    $tempc['invoice_id'] = "Service Charge $: ".$total_feee;
+		    $tempc['invoice_id'] = "Service Charge $: ".$total_fee;
 		    $tempc['uid'] = "Transaction Charge : &".$total_t_feer;  
 		    $tempc['cur_time'] = "Grand Total : $".$get_totalr;
 			array_push($data_from_db, $tempc);
