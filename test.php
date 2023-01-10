@@ -34,7 +34,7 @@ $sheet = $spreadsheet->getActiveSheet();
 	        $data_from_db = array(); 
 			while($row = mysqli_fetch_array($result)){
 
-				$id = $row['id'];
+				/*$id = $row['id'];
 				$service = $row['service']; 
 				$practitioner = $row['practitioner'];  
 				$bdate = $row['bdate'];  
@@ -52,12 +52,12 @@ $sheet = $spreadsheet->getActiveSheet();
 				$transaction_id = $row['transaction_id']; , 
 				$invoice_id = $row['invoice_id']; , 
 				$uid = $row['uid']; , 
-				$cur_time = $row['cur_time'];
+				$cur_time = $row['cur_time'];*/
 	        //traversing through all the result 
 	        //while($stmt->fetch()){
-	    	$temp = array();
+	    	//$temp = array();
 	    	//$temp['id'] = $id; 
-			if ($status == "0") {
+			/*if ($status == "0") {
 				$tstatus = "Booked";
 			} else if ($status == "1") {
 				$tstatus = "Approved";
@@ -80,9 +80,9 @@ $sheet = $spreadsheet->getActiveSheet();
 			}
 
 			$str = $invoice_id; 
-			$tinvoice_id = substr($str, 4);
+			$tinvoice_id = substr($str, 4);*/
 
-		    $temp['service'] = $service; 
+		    /*$temp['service'] = $service; 
 		    $temp['practitioner'] = $practitioner; 
 		    $temp['bdate'] = $bdate; 
 		    $temp['duration'] = $duration; 
@@ -100,10 +100,30 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $temp['invoice_id'] = $tinvoice_id; 
 		    $temp['uid'] = $uid; 
 		    $temp['cur_time'] = $cur_time; 
-		    array_push($data_from_db, $temp);
-	        }
+		    array_push($data_from_db, $temp);*/
 
-			$tempb = array();
+			array_push($data_from_db, array(
+				"service"=>$row['service'],
+				"practitioner"=>$practitioner,
+				"bdate"=>$row['bdate'],
+				"duration"=>$row['duration'],
+				"timeslot"=>$row['timeslot'],
+				"booking_for"=>$row['booking_for'],
+				"address"=>$row['address'],
+				"note"=>$row['note'],
+				"scharge"=>$row['scharge'],
+				"tfee"=>$row['tfee'],
+				"total"=>$row['total'],
+				"status"=>$row['status'],
+				"payment_status"=>$row['payment_status'],
+				"invoice_id"=>$row['invoice_id'],
+				"uid"=>$row['uid'],
+				"cur_time"=>$row['cur_time'])
+				);
+	        }
+			echo json_encode($data_from_db);
+
+			/*$tempb = array();
 	    	//$tempb['id'] = "TOTAL :"; 
 		    $tempb['service'] = ""; 
 		    $tempb['practitioner'] = ""; 
@@ -123,14 +143,14 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $tempb['invoice_id'] = ""; 
 		    $tempb['uid'] = ""; 
 		    $tempb['cur_time'] = "";
-			array_push($data_from_db, $tempb); 
+			array_push($data_from_db, $tempb); */
 
 //$highestRow = $this->spreadsheet->getActiveSheet()->getHighestRow();
 //$data_from_db[5]=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
 
 //set column header
 //set your own column header
-$column_header=["Service","Practitioner","Booking Date","Duration","Timeslot","Booking For","Recipient","Address","Note","Service Charge","Transaction Fee","Total","Status","Payment Status","Booking Id","User Id","Create At"];
+/*$column_header=["Service","Practitioner","Booking Date","Duration","Timeslot","Booking For","Recipient","Address","Note","Service Charge","Transaction Fee","Total","Status","Payment Status","Booking Id","User Id","Create At"];
 $j=1;
 foreach($column_header as $x_value) {
 		$sheet->setCellValueByColumnAndRow($j,1,$x_value);
@@ -159,6 +179,6 @@ $writer = new Xlsx($spreadsheet);
   
 // Save .xlsx file to the files directory 
 $writer->save('demo.xlsx');
-header("location : demo.xlsx") ;
+header("location : demo.xlsx") ;*/
 
 ?>
