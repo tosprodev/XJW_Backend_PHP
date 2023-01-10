@@ -109,6 +109,7 @@ $sheet = $spreadsheet->getActiveSheet();
 				"duration"=>$row['duration'],
 				"timeslot"=>$row['timeslot'],
 				"booking_for"=>$row['booking_for'],
+				"recipient"=>$row['recipient'],
 				"address"=>$row['address'],
 				"note"=>$row['note'],
 				"scharge"=>$row['scharge'],
