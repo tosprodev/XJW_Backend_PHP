@@ -15,19 +15,10 @@ $sheet = $spreadsheet->getActiveSheet();
 			$total_t_fee = "$row[1]";
 			$get_total = "$row[2]";
 			$get_total_booking = "$row[3]";
-
-			//$frst = $temp_tc;
-			//$snd = 2;
-			//$tc = $frst + $snd;
-			//echo $tc;
 			$ssql = "SELECT $mtable.*, users.* FROM $mtable INNER JOIN users ON $mtable.uid = users.id";
 			$result = mysqli_query($conn,$ssql); 
-			
 	        $data_from_db = array(); 
 			while($row = mysqli_fetch_array($result)){
-
-				
-
 			if ($row['status'] == "0") {
 				$tstatus = "Booked";
 			} else if ($status == "1") {
@@ -40,9 +31,7 @@ $sheet = $spreadsheet->getActiveSheet();
 				$tstatus = "Cancelled";
 			}  else if ($status == "4") {
 				$tstatus = "Completed";
-				
 			}
-			
 			if ($row['payment_status'] == "0") {
 				$tpayment_status = "Pending";
 			} else if ($payment_status = "1") {
@@ -50,12 +39,9 @@ $sheet = $spreadsheet->getActiveSheet();
 			} else if ($payment_status = "2") {
 				$tpayment_status = "Cancelled";
 			}
-
 			$str = $row['invoice_id']; 
 			$tinvoice_id = substr($str, 4);
-
 			array_push($data_from_db, array(
-
 				"service"=>$row['service'],
 				"practitioner"=>$row['practitioner'],
 				"bdate"=>$row['bdate'],
@@ -72,9 +58,6 @@ $sheet = $spreadsheet->getActiveSheet();
 				"cur_time"=>$row['cur_time'])
 				);
 	        }
-		
-			echo json_encode($data_from_db);
-
 			$tempb = array();
 		    $tempb['service'] = ""; 
 		    $tempb['practitioner'] = ""; 
@@ -91,7 +74,6 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $tempb['uid'] = "";
 		    $tempb['cur_time'] = "";
 			array_push($data_from_db, $tempb);
-
 			$tempc = array();
 		    $tempc['service'] = ""; 
 		    $tempc['practitioner'] = ""; 
@@ -108,12 +90,6 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $tempc['uid'] = "Transaction Charge : ".$total_t_fee;  
 		    $tempc['cur_time'] = "Grand Total : ".$get_total;
 			array_push($data_from_db, $tempc);
-
-//$highestRow = $this->spreadsheet->getActiveSheet()->getHighestRow();
-//$data_from_db[5]=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
-
-//set column header
-//set your own column header
 $column_header=["Service","Practitioner","Booking Date","Duration","Timeslot","Address","Service Charge","Transaction Fee","Total","Status","Payment Status","Booking Id","User's Name","Create At"];
 $j=1;
 foreach($column_header as $x_value) {
@@ -121,28 +97,45 @@ foreach($column_header as $x_value) {
   		$j=$j+1;
   		
 	}
-
-//set value row
-for($i=0;$i<count($data_from_db);$i++)
-{
-
-//set value for indi cell
+for($i=0;$i<count($data_from_db);$i++){
 $row=$data_from_db[$i];
-
 $j=1;
-
 	foreach($row as $x => $x_value) {
 		$sheet->setCellValueByColumnAndRow($j,$i+2,$x_value);
   		$j=$j+1;
 	}
-
 }
-
-// Write an .xlsx file  
 $writer = new Xlsx($spreadsheet); 
-  
-// Save .xlsx file to the files directory 
 $writer->save('demo.xlsx');
-header("location : demo.xlsx") ;
+//header("location : demo.xlsx") ;
+
+//Read the url
+$url = $_GET[' demo.xlsx'];
+
+//Clear the cache
+clearstatcache();
+
+//Check the file path exists or not
+if(file_exists($url)) {
+
+//Define header information
+header('Content-Description: File Transfer');
+header('Content-Type: application/octet-stream');
+header('Content-Disposition: attachment; filename="'.basename($url).'"');
+header('Content-Length: ' . filesize($url));
+header('Pragma: public');
+
+//Clear system output buffer
+flush();
+
+//Read the size of the file
+readfile($url,true);
+
+//Terminate from the script
+die();
+}
+else{
+echo "File path does not exist.";
+}
 
 ?>
