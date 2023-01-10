@@ -4058,7 +4058,7 @@ if ($result->num_rows > 0) {
 								$tstatus = "Booked";
 							} else if ($status == "1") {
 								$tstatus = "Approved";
-							} else if ($status == "1") {
+							} else if ($status == "1") { 
 								$tstatus = "Approved";
 							} else if ($status == "2") {
 								$tstatus = "Completed";
