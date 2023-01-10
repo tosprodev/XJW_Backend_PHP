@@ -1,6 +1,6 @@
 <?php 
 require 'PhpOffice/autoload.php';
-require_once 'config.php';
+require_once '../app/config.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet; 
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx; 
