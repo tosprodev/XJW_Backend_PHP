@@ -80,7 +80,7 @@ $sheet = $spreadsheet->getActiveSheet();
 
 //set column header
 //set your own column header
-$column_header=["id","Service","Practitioner","Booking Date","Duration","Timeslot","Booking For","Recipient","Address","Note","Service Charge","Status","Transaction Fee","Total","Payment Status","Transaction Id","Invoice Id","User Id","Create At"];
+$column_header=["id","Service","Practitioner","Booking Date","Duration","Timeslot","Booking For","Recipient","Address","Note","Service Charge","Transaction Fee","Total","Status","Payment Status","Transaction Id","Invoice Id","User Id","Create At"];
 $j=1;
 foreach($column_header as $x_value) {
 		$sheet->setCellValueByColumnAndRow($j,1,$x_value);
