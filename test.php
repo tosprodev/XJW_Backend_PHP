@@ -91,22 +91,21 @@ $sheet = $spreadsheet->getActiveSheet();
 				$tstatus = "Cancelled";
 			}  else if ($status == "4") {
 				$tstatus = "Completed";
-			} 
+				
+			}
+			
+			if ($row['payment_status'] == "0") {
+				$tpayment_status = "Pending";
+			} else if ($payment_status == "1") {
+				$tpayment_status = "Paid";
+			} else if ($payment_status == "2") {
+				$tpayment_status = "Cancelled";
+			}
+
+			$str = $invoice_id; 
+			$tinvoice_id = substr($str, 4);
 
 			array_push($data_from_db, array(
-
-				
-				
-				/*if ($row['payment_status'] == "0") {
-					$tpayment_status = "Pending";
-				} else if ($payment_status == "1") {
-					$tpayment_status = "Paid";
-				} else if ($payment_status == "2") {
-					$tpayment_status = "Cancelled";
-				}*/
-	
-				//$str = $invoice_id; 
-				//$tinvoice_id = substr($str, 4);
 
 				"service"=>$row['service'],
 				"practitioner"=>$row['practitioner'],
@@ -121,8 +120,8 @@ $sheet = $spreadsheet->getActiveSheet();
 				"tfee"=>$row['tfee'],
 				"total"=>$row['total'],
 				"status"=>$tstatus,
-				"payment_status"=>$row['payment_status'],
-				"invoice_id"=>$row['invoice_id'],
+				"payment_status"=>$tpayment_status,
+				"invoice_id"=>$tinvoice_id,
 				"uid"=>$row['first_name']." ".$row['last_name'],
 				"cur_time"=>$row['cur_time'])
 				);
