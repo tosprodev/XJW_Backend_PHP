@@ -71,11 +71,11 @@ $sheet = $spreadsheet->getActiveSheet();
 //delete line from 18 to 20 and call the db function
 $data_from_db=array();
 //$data_from_db[0]=array("id"=>"$id","age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23);
-$data_from_db[0]=array("name"=>"raja1","age"=>43);
+$data_from_db[0]=array("name"=>"raja1","age"=>43,"agea"=>43,"ageb"=>43,"agec"=>43,"aged"=>43,"agee"=>43);
 
 //set column header
 //set your own column header
-$column_header=["Name","Age"];
+$column_header=["Name","Age",,"Age A","Age B","Age C","Age D","Age E"];
 $j=1;
 foreach($column_header as $x_value) {
 		$sheet->setCellValueByColumnAndRow($j,1,$x_value);
