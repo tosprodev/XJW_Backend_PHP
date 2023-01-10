@@ -46,7 +46,19 @@ $sheet = $spreadsheet->getActiveSheet();
 				$tstatus = "Cancelled";
 			}  else if ($status == "4") {
 				$tstatus = "Completed";
-			}  
+			} 
+			
+			if ($payment_status == "0") {
+				$tpayment_status == "Pending";
+			} else if ($payment_status == "1") {
+				$tpayment_status == "Paid";
+			} else if ($payment_status == "2") {
+				$tpayment_status == "Cancelled";
+			}
+
+			$str = $invoice_id; 
+			$tinvoice_id = substr($str, 4);
+
 		    $temp['service'] = $service; 
 		    $temp['practitioner'] = $practitioner; 
 		    $temp['bdate'] = $bdate; 
@@ -60,9 +72,9 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $temp['tfee'] = $tfee; 
 		    $temp['total'] = $total; 
 		    $temp['status'] = $tstatus; 
-		    $temp['payment_status'] = $payment_status; 
+		    $temp['payment_status'] = $tpayment_status; 
 		    $temp['transaction_id'] = $transaction_id; 
-		    $temp['invoice_id'] = $invoice_id; 
+		    $temp['invoice_id'] = $tinvoice_id; 
 		    $temp['uid'] = $uid; 
 		    $temp['cur_time'] = $cur_time; 
 		    array_push($data_from_db, $temp);
