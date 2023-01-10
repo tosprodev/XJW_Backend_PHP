@@ -8,8 +8,8 @@ $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet(); 
 
 //$uid = $_GET['uid'];
-			$table = 'booking';
-			$sql = "SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM $table ORDER BY id DESC"
+			$table = "booking";
+			$sql = "SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM '$table' ORDER BY id DESC"
 	        $stmt = $conn->prepare();
 	
 	        //executing the query 
