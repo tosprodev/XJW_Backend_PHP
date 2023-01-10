@@ -13,7 +13,7 @@ $sheet = $spreadsheet->getActiveSheet();
 			$result=mysqli_query($conn,$sql);
 			$row=mysqli_fetch_array($result);
 			echo "$row[0]";
-			$ssql = "SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM $mtable ORDER BY id DESC";
+			/*$ssql = "SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM $mtable ORDER BY id DESC";
 	        $stmt = $conn->prepare($ssql);
 	
 	        //executing the query 
@@ -47,38 +47,7 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $temp['uid'] = $uid; 
 		    $temp['cur_time'] = $cur_time; 
 		    array_push($data_from_db, $temp);
-            /*$temp = array(
-                'id'=>$id, 
-                'service'=>$service, 
-                'practitioner'=>$practitioner,
-                'duration'=>$duration,
-                'timeslot'=>$timeslot,
-                'booking_for'=>$booking_for,
-                'recipient'=>$recipient,
-                'address'=>$address,
-                'note'=>$note,
-                'scharge'=>$scharge,
-                'tfee'=>$tfee,
-                'total'=>$total,
-                'payment_status'=>$payment_status,
-                'transaction_id'=>$transaction_id,
-                'invoice_id'=>$invoice_id,
-                'uid'=>$uid,
-                'cur_time'=>$cur_time
-                );
-                array_push($booking, $temp);*/
 	        }
-	
-	        //displaying the result in json format 
-            //echo json_encode($temps);
-
-// sample data from db
-// call the db get data function here
-//delete line from 18 to 20 and call the db function
-//$data_from_db=array();
-//$data_from_db=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
-//$data_from_db[0]=array("name"=>"raja1","age"=>43,"agea"=>43,"ageb"=>43,"agec"=>43,"aged"=>43,"agee"=>43);
-
 //$highestRow = $this->spreadsheet->getActiveSheet()->getHighestRow();
 //$data_from_db[$tc]=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
 
@@ -113,6 +82,6 @@ $writer = new Xlsx($spreadsheet);
   
 // Save .xlsx file to the files directory 
 $writer->save('demo.xlsx');
-header("location : demo.xlsx") ;
+header("location : demo.xlsx") ;*/
 
 ?>
