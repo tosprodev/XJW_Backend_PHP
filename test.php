@@ -49,11 +49,11 @@ $sheet = $spreadsheet->getActiveSheet();
 			} 
 			
 			if ($payment_status == "0") {
-				$tpayment_status == "Pending";
+				$tpayment_status = "Pending";
 			} else if ($payment_status == "1") {
-				$tpayment_status == "Paid";
+				$tpayment_status = "Paid";
 			} else if ($payment_status == "2") {
-				$tpayment_status == "Cancelled";
+				$tpayment_status = "Cancelled";
 			}
 
 			$str = $invoice_id; 
@@ -72,7 +72,7 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $temp['tfee'] = $tfee; 
 		    $temp['total'] = $total; 
 		    $temp['status'] = $tstatus; 
-		    $temp['payment_status'] = $payment_status; 
+		    $temp['payment_status'] = $tpayment_status; 
 		    $temp['transaction_id'] = $transaction_id; 
 		    $temp['invoice_id'] = $tinvoice_id; 
 		    $temp['uid'] = $uid; 
