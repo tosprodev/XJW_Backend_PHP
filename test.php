@@ -75,7 +75,7 @@ $data_from_db[0]=array("name"=>"raja1","age"=>43,"agea"=>43,"ageb"=>43,"agec"=>4
 
 //set column header
 //set your own column header
-$column_header=["Name","Age",,"Age A","Age B","Age C","Age D","Age E"];
+$column_header=["Name","Age","Age A","Age B","Age C","Age D","Age E"];
 $j=1;
 foreach($column_header as $x_value) {
 		$sheet->setCellValueByColumnAndRow($j,1,$x_value);
