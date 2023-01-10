@@ -102,7 +102,7 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $temp['cur_time'] = $cur_time; 
 		    array_push($data_from_db, $temp);
 
-			array_push($data_from_db, array(
+			/*array_push($data_from_db, array(
 				"service"=>$row['service'],
 				"practitioner"=>$row['practitioner'],
 				"bdate"=>$row['bdate'],
@@ -120,7 +120,8 @@ $sheet = $spreadsheet->getActiveSheet();
 				"uid"=>$row['uid'],
 				"cur_time"=>$row['cur_time'])
 				);
-	        }
+	        }*/
+		}
 			//echo json_encode($data_from_db);
 
 			/*$tempb = array();
