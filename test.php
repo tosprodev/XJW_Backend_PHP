@@ -71,7 +71,7 @@ $sheet = $spreadsheet->getActiveSheet();
 //delete line from 18 to 20 and call the db function
 $data_from_db=array();
 //$data_from_db[0]=array("id"=>"$id","age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23);
-$data_from_db[1]=array("name"=>"raja1","age"=>43);
+$data_from_db[0]=array("name"=>"raja1","age"=>43);
 
 //set column header
 //set your own column header
