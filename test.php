@@ -8,7 +8,9 @@ $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet(); 
 
 //$uid = $_GET['uid'];
-	        $stmt = $conn->prepare("SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM booking ORDER BY id DESC");
+			$table = 'booking';
+			$sql = "SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM $table ORDER BY id DESC"
+	        $stmt = $conn->prepare();
 	
 	        //executing the query 
 	        $stmt->execute();
@@ -73,7 +75,7 @@ $sheet = $spreadsheet->getActiveSheet();
 //$data_from_db=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
 //$data_from_db[0]=array("name"=>"raja1","age"=>43,"agea"=>43,"ageb"=>43,"agec"=>43,"aged"=>43,"agee"=>43);
 
-$highestRow = $this->spreadsheet->getActiveSheet()->getHighestRow();
+//$highestRow = $this->spreadsheet->getActiveSheet()->getHighestRow();
 $data_from_db[$highestRow]=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
 
 //set column header
