@@ -7,13 +7,26 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 $spreadsheet = new Spreadsheet(); 
 $sheet = $spreadsheet->getActiveSheet(); 
 //$uid = $_GET['uid'];
-
 			$mtable = 'booking';
+			$sql="SELECT sum(scharge), sum(tfee), sum(total), count(id)  FROM ".$mtable;
+			$result=mysqli_query($conn,$sql);
+			$row=mysqli_fetch_array($result);
+			$total_fee = "$row[0]";
+			$total_t_fee = "$row[1]";
+			$get_total = "$row[2]";
+			$get_total_booking = "$row[3]";
+
+			//$frst = $temp_tc;
+			//$snd = 2;
+			//$tc = $frst + $snd;
+			//echo $tc;
 			$ssql = "SELECT booking.*, users.* FROM booking INNER JOIN users ON booking.uid = users.id";
 			$result = mysqli_query($conn,$ssql); 
 			
 	        $data_from_db = array(); 
 			while($row = mysqli_fetch_array($result)){
+
+				
 
 			if ($row['status'] == "0") {
 				$tstatus = "Booked";
@@ -27,6 +40,7 @@ $sheet = $spreadsheet->getActiveSheet();
 				$tstatus = "Cancelled";
 			}  else if ($status == "4") {
 				$tstatus = "Completed";
+				
 			}
 			
 			if ($row['payment_status'] == "0") {
@@ -41,7 +55,7 @@ $sheet = $spreadsheet->getActiveSheet();
 			$tinvoice_id = substr($str, 4);
 
 			array_push($data_from_db, array(
-				//"sno"=>$j+1,
+
 				"service"=>$row['service'],
 				"practitioner"=>$row['practitioner'],
 				"bdate"=>$row['bdate'],
@@ -61,46 +75,30 @@ $sheet = $spreadsheet->getActiveSheet();
 				"cur_time"=>$row['cur_time'])
 				);
 	        }
+		
+			echo json_encode($data_from_db);
 
-			/*$tempb = array();
+			$tempb = array();
+	    	//$tempb['id'] = "TOTAL :"; 
 		    $tempb['service'] = ""; 
 		    $tempb['practitioner'] = ""; 
 		    $tempb['bdate'] = ""; 
 		    $tempb['duration'] = ""; 
 		    $tempb['timeslot'] = ""; 
-		    $tempb['booking_for'] = "TOTAL "; 
-		    $tempb['recipient'] = "---------"; 
-		    $tempb['address'] = "Booking : "; 
-		    $tempb['note'] = " ; 
-		    $tempb['scharge'] = "";
-		    $tempb['tfee'] = ""; 
-		    $tempb['total'] = ""; 
+		    $tempb['booking_for'] = ""; 
+		    $tempb['recipient'] = "TOTAL : "; 
+		    $tempb['address'] = "----------"; 
+		    $tempb['note'] = "Booking : ".$get_total_booking; 
+		    $tempb['scharge'] = "$total_fee;
+		    $tempb['tfee'] = $total_t_fee; 
+		    $tempb['total'] = $get_total; 
 		    $tempb['status'] = ""; 
 		    $tempb['payment_status'] = ""; 
+		    //$tempb['transaction_id'] = ""; 
 		    $tempb['invoice_id'] = ""; 
 		    $tempb['uid'] = ""; 
 		    $tempb['cur_time'] = "";
-			array_push($data_from_db, $tempb);*/
-
-			$tempc = array();
-		    $tempc['service'] = ""; 
-		    $tempc['practitioner'] = ""; 
-		    $tempc['bdate'] = ""; 
-		    $tempc['duration'] = ""; 
-		    $tempc['timeslot'] = ""; 
-		    $tempc['booking_for'] = ""; 
-		    $tempc['recipient'] = ""; 
-		    $tempc['address'] = ""; 
-		    $tempc['note'] = ""; 
-		    $tempc['scharge'] = $total_fee;
-		    $tempc['tfee'] = $total_t_fee; 
-		    $tempc['total'] = $get_total; 
-		    $tempc['status'] = ""; 
-		    $tempc['payment_status'] = ""; 
-		    $tempc['invoice_id'] = ""; 
-		    $tempc['uid'] = ""; 
-		    $tempc['cur_time'] = "";
-			array_push($data_from_db, $tempc);
+			array_push($data_from_db, $tempb);
 
 //$highestRow = $this->spreadsheet->getActiveSheet()->getHighestRow();
 //$data_from_db[5]=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
