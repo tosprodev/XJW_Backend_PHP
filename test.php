@@ -8,7 +8,7 @@ $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet(); 
 //$uid = $_GET['uid'];
 			$mtable = 'booking';
-			echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `$mtable`");
+			echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `booking`");
 			$ssql = "SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM $mtable ORDER BY id DESC";
 	        $stmt = $conn->prepare($ssql);
 	
