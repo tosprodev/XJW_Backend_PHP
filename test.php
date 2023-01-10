@@ -128,7 +128,7 @@ $sheet = $spreadsheet->getActiveSheet();
 		
 			echo json_encode($data_from_db);
 
-			/*$tempb = array();
+			$tempb = array();
 	    	//$tempb['id'] = "TOTAL :"; 
 		    $tempb['service'] = ""; 
 		    $tempb['practitioner'] = ""; 
@@ -148,7 +148,7 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $tempb['invoice_id'] = ""; 
 		    $tempb['uid'] = ""; 
 		    $tempb['cur_time'] = "";
-			array_push($data_from_db, $tempb); */
+			array_push($data_from_db, $tempb);
 
 //$highestRow = $this->spreadsheet->getActiveSheet()->getHighestRow();
 //$data_from_db[5]=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
