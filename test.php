@@ -8,7 +8,7 @@ $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet(); 
 
 //$uid = $_GET['uid'];
-	        $stmt = $conn->prepare("SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM booking ORDER BY id DESC");
+	        /*$stmt = $conn->prepare("SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM booking ORDER BY id DESC");
 	
 	        //executing the query 
 	        $stmt->execute();
@@ -64,18 +64,18 @@ $sheet = $spreadsheet->getActiveSheet();
 	        }*/
 	
 	        //displaying the result in json format 
-            echo json_encode($temps);
+            //echo json_encode($temps);
 
 // sample data from db
 // call the db get data function here
 //delete line from 18 to 20 and call the db function
-//$data_from_db=array();
+$data_from_db=array();
 //$data_from_db[0]=array("id"=>"$id","age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23,"age"=>23);
-//$data_from_db[1]=array("name"=>"raja1","age"=>43);
+$data_from_db[1]=array("name"=>"raja1","age"=>43);
 
 //set column header
 //set your own column header
-/*$column_header=["Name","Age"];
+$column_header=["Name","Age"];
 $j=1;
 foreach($column_header as $x_value) {
 		$sheet->setCellValueByColumnAndRow($j,1,$x_value);
@@ -103,5 +103,5 @@ $j=1;
 $writer = new Xlsx($spreadsheet); 
   
 // Save .xlsx file to the files directory 
-$writer->save('demo.xlsx'); */
+$writer->save('demo.xlsx'); 
 ?>
