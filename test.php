@@ -17,6 +17,7 @@ $sheet = $spreadsheet->getActiveSheet();
 			$frst = $temp_tc;
 			$snd = 1;
 			$tc = $frst + $snd;
+			echo $tc;
 			/*$ssql = "SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM $mtable ORDER BY id DESC";
 	        $stmt = $conn->prepare($ssql);
 	
