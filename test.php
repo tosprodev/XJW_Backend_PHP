@@ -9,7 +9,7 @@ $sheet = $spreadsheet->getActiveSheet();
 //$uid = $_GET['uid'];
 			$mtable = 'booking';
 			//echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `booking`");
-			$sql="select count('id') from '$mtable'";
+			$sql="SELECT count('id') FROM '$mtable'";
 			$result=mysqli_query($conn,$sql);
 			$row=mysqli_fetch_array($result);
 			$temp_tc = "$row[0]";
