@@ -42,7 +42,7 @@ $j=1;
 			$tinvoice_id = substr($str, 4);
 
 			array_push($data_from_db, array(
-				"Sno"=>$j;
+				"sno"=>$j;
 				"service"=>$row['service'],
 				"practitioner"=>$row['practitioner'],
 				"bdate"=>$row['bdate'],
@@ -64,7 +64,7 @@ $j=1;
 	        }
 
 			$tempb = array();
-			"Sno"=>$j;
+			$tempb['sno'] = $j;
 		    $tempb['service'] = ""; 
 		    $tempb['practitioner'] = ""; 
 		    $tempb['bdate'] = ""; 
@@ -85,7 +85,7 @@ $j=1;
 			array_push($data_from_db, $tempb);
 
 			$tempc = array();
-			"Sno"=>$j;
+			$tempc['sno'] = $j;
 		    $tempc['service'] = ""; 
 		    $tempc['practitioner'] = ""; 
 		    $tempc['bdate'] = ""; 
