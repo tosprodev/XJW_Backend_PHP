@@ -81,7 +81,7 @@ $sheet = $spreadsheet->getActiveSheet();
 
 			array_push($data_from_db, array(
 
-				/*/if ($row['status'] == "0") {
+				if ($row['status'] == "0") {
 					$tstatus = "Booked";
 				} else if ($status == "1") {
 					$tstatus = "Approved";
