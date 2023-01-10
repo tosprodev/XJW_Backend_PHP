@@ -16,7 +16,7 @@ $sheet = $spreadsheet->getActiveSheet();
 			$frst = $temp_tc;
 			$snd = 2;
 			$tc = $frst + $snd;
-			echo $tc;
+			//echo $tc;
 			$ssql = "SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM $mtable ORDER BY id DESC";
 	        $stmt = $conn->prepare($ssql);
 	
@@ -53,7 +53,7 @@ $sheet = $spreadsheet->getActiveSheet();
 		    array_push($data_from_db, $temp);
 	        }
 //$highestRow = $this->spreadsheet->getActiveSheet()->getHighestRow();
-//$data_from_db[$tc]=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
+/data_from_db[$tc]=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
 
 //set column header
 //set your own column header
