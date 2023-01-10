@@ -52,8 +52,31 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $temp['cur_time'] = $cur_time; 
 		    array_push($data_from_db, $temp);
 	        }
+
+			$tempb = array();
+	    	$tempb['id'] = ""; 
+		    $tempb['service'] = ""; 
+		    $tempb['practitioner'] = ""; 
+		    $tempb['bdate'] = ""; 
+		    $tempb['duration'] = ""; 
+		    $tempb['timeslot'] = ""; 
+		    $tempb['booking_for'] = ""; 
+		    $tempb['recipient'] = ""; 
+		    $tempb['address'] = ""; 
+		    $tempb['note'] = ""; 
+		    $tempb['scharge'] = ""; 
+		    $tempb['tfee'] = ""; 
+		    $tempb['total'] = ""; 
+		    $tempb['status'] = ""; 
+		    $tempb['payment_status'] = ""; 
+		    $tempb['transaction_id'] = ""; 
+		    $tempb['invoice_id'] = ""; 
+		    $tempb['uid'] = ""; 
+		    $tempb['cur_time'] = "This is total";
+			array_push($data_from_db, $tempb); 
+
 //$highestRow = $this->spreadsheet->getActiveSheet()->getHighestRow();
-$data_from_db[5]=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
+//$data_from_db[5]=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
 
 //set column header
 //set your own column header
