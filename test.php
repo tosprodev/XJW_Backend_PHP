@@ -73,6 +73,9 @@ $sheet = $spreadsheet->getActiveSheet();
 //$data_from_db=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
 //$data_from_db[0]=array("name"=>"raja1","age"=>43,"agea"=>43,"ageb"=>43,"agec"=>43,"aged"=>43,"agee"=>43);
 
+$highestRow = $this->spreadsheet->getActiveSheet()->getHighestRow();
+$data_from_db[$highestRow]=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
+
 //set column header
 //set your own column header
 $column_header=["id","Service","Practitioner","Booking Date","Duration","Timeslot","Booking For","Recipient","Address","Note","Service Charge","Status","Transaction Fee","Total","Payment Status","Transaction Id","Invoice Id","User Id","Create At"];
@@ -98,8 +101,7 @@ $j=1;
 	}
 
 }
-$highestRow = $this->spreadsheet->getActiveSheet()->getHighestRow();
-$data_from_db[$highestRow]=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
+
 // Write an .xlsx file  
 $writer = new Xlsx($spreadsheet); 
   
