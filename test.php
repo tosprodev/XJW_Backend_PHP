@@ -9,7 +9,7 @@ $sheet = $spreadsheet->getActiveSheet();
 //$uid = $_GET['uid'];
 			$mtable = 'booking';
 			//echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `booking`");
-			$sql="select count('id') from $mtable";
+			$sql="select count('id') from '$mtable'";
 			$result=mysqli_query($conn,$sql);
 			$row=mysqli_fetch_array($result);
 			$temp_tc = "$row[0]";
@@ -17,7 +17,7 @@ $sheet = $spreadsheet->getActiveSheet();
 			$frst = $temp_tc;
 			$snd = 1;
 			$tc = $frst + $snd;
-			$ssql = "SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM $mtable ORDER BY id DESC";
+			/*$ssql = "SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM $mtable ORDER BY id DESC";
 	        $stmt = $conn->prepare($ssql);
 	
 	        //executing the query 
@@ -52,7 +52,8 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $temp['cur_time'] = $cur_time; 
 		    array_push($data_from_db, $temp);
 	        }
-$data_from_db[$tc]=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
+//$highestRow = $this->spreadsheet->getActiveSheet()->getHighestRow();
+//$data_from_db[$tc]=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
 
 //set column header
 //set your own column header
@@ -85,6 +86,6 @@ $writer = new Xlsx($spreadsheet);
   
 // Save .xlsx file to the files directory 
 $writer->save('demo.xlsx');
-header("location : demo.xlsx") ;
+header("location : demo.xlsx") ;*/
 
 ?>
