@@ -22,18 +22,39 @@ $sheet = $spreadsheet->getActiveSheet();
 			$ssql = "SELECT booking.*, users.* FROM booking INNER JOIN users ON booking.uid = users.id";
 			//$ssql = "SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM $mtable ORDER BY id DESC";
 			//$ssql = "SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM $mtable ORDER BY id DESC";
-	        $stmt = $conn->prepare($ssql);
+	        //$stmt = $conn->prepare($ssql);
 	
 	        //executing the query 
-	        $stmt->execute();
+	        //$stmt->execute();
 	
 	        //binding results to the query 
-	        $stmt->bind_result($id, $service, $practitioner, $bdate, $duration, $timeslot, $booking_for, $recipient, $address, $note, $scharge, $tfee, $total, $status, $payment_status, $transaction_id, $invoice_id, $uid, $cur_time);
-	
+	        //$stmt->bind_result($id, $service, $practitioner, $bdate, $duration, $timeslot, $booking_for, $recipient, $address, $note, $scharge, $tfee, $total, $status, $payment_status, $transaction_id, $invoice_id, $uid, $cur_time);
+			$result = mysqli_query($conn,$sql); 
+			
 	        $data_from_db = array(); 
-	
+			while($row = mysqli_fetch_array($result)){
+
+				$id = $row['id'];
+				$service = $row['service']; 
+				$practitioner = $row['practitioner'];  
+				$bdate = $row['bdate'];  
+				$duration = $row['duration'];  
+				$timeslot = $row['timeslot'];  
+				$booking_for = $row['booking_for'];   
+				$recipient = $row['recipient'];  
+				$address = $row['address']; 
+				$note = $row['note']; , 
+				$scharge = $row['scharge'];  
+				$tfee = $row['tfee']; , 
+				$total = $row['total'];  
+				$status = $row['status'];  
+				$payment_status = $row['payment_status']; , 
+				$transaction_id = $row['transaction_id']; , 
+				$invoice_id = $row['invoice_id']; , 
+				$uid = $row['uid']; , 
+				$cur_time = $row['cur_time'];
 	        //traversing through all the result 
-	        while($stmt->fetch()){
+	        //while($stmt->fetch()){
 	    	$temp = array();
 	    	//$temp['id'] = $id; 
 			if ($status == "0") {
