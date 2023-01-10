@@ -34,7 +34,7 @@ $sheet = $spreadsheet->getActiveSheet();
 	        $data_from_db = array(); 
 			while($row = mysqli_fetch_array($result)){
 
-				/*$id = $row['id'];
+				$id = $row['id'];
 				$service = $row['service']; 
 				$practitioner = $row['practitioner'];  
 				$bdate = $row['bdate'];  
@@ -52,7 +52,7 @@ $sheet = $spreadsheet->getActiveSheet();
 				$transaction_id = $row['transaction_id']; , 
 				$invoice_id = $row['invoice_id']; , 
 				$uid = $row['uid']; , 
-				$cur_time = $row['cur_time'];*/
+				$cur_time = $row['cur_time'];
 	        //traversing through all the result 
 	        //while($stmt->fetch()){
 	    	//$temp = array();
@@ -121,7 +121,7 @@ $sheet = $spreadsheet->getActiveSheet();
 				"cur_time"=>$row['cur_time'])
 				);
 	        }
-			echo json_encode($data_from_db);
+			//echo json_encode($data_from_db);
 
 			/*$tempb = array();
 	    	//$tempb['id'] = "TOTAL :"; 
@@ -150,7 +150,7 @@ $sheet = $spreadsheet->getActiveSheet();
 
 //set column header
 //set your own column header
-/*$column_header=["Service","Practitioner","Booking Date","Duration","Timeslot","Booking For","Recipient","Address","Note","Service Charge","Transaction Fee","Total","Status","Payment Status","Booking Id","User Id","Create At"];
+$column_header=["Service","Practitioner","Booking Date","Duration","Timeslot","Booking For","Recipient","Address","Note","Service Charge","Transaction Fee","Total","Status","Payment Status","Booking Id","User Id","Create At"];
 $j=1;
 foreach($column_header as $x_value) {
 		$sheet->setCellValueByColumnAndRow($j,1,$x_value);
@@ -179,6 +179,6 @@ $writer = new Xlsx($spreadsheet);
   
 // Save .xlsx file to the files directory 
 $writer->save('demo.xlsx');
-header("location : demo.xlsx") ;*/
+header("location : demo.xlsx") ;
 
 ?>
