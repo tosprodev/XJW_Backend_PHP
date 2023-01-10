@@ -31,7 +31,7 @@ $sheet = $spreadsheet->getActiveSheet();
 	        //$stmt->bind_result($id, $service, $practitioner, $bdate, $duration, $timeslot, $booking_for, $recipient, $address, $note, $scharge, $tfee, $total, $status, $payment_status, $transaction_id, $invoice_id, $uid, $cur_time);
 			$result = mysqli_query($conn,$ssql); 
 			
-	        //$data_from_db = array(); 
+	        $data_from_db = array(); 
 			while($row = mysqli_fetch_array($result)){
 
 				/*$id = $row['id'];
