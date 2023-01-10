@@ -8,14 +8,14 @@ $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet(); 
 //$uid = $_GET['uid'];
 			$mtable = 'booking';
-			$sql="SELECT count('id') FROM ".$mtable;
+			$sql="SELECT sum('tfee') FROM ".$mtable;
 			$result=mysqli_query($conn,$sql);
 			$row=mysqli_fetch_array($result);
-			$temp_tc = "$row[0]";
+			$total_fee = "$row[0]";
 
-			$frst = $temp_tc;
-			$snd = 2;
-			$tc = $frst + $snd;
+			//$frst = $temp_tc;
+			//$snd = 2;
+			//$tc = $frst + $snd;
 			//echo $tc;
 			$ssql = "SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM $mtable ORDER BY id DESC";
 	        $stmt = $conn->prepare($ssql);
@@ -54,7 +54,7 @@ $sheet = $spreadsheet->getActiveSheet();
 	        }
 
 			$tempb = array();
-	    	$tempb['id'] = ""; 
+	    	$tempb['id'] = "TOTAL :"; 
 		    $tempb['service'] = ""; 
 		    $tempb['practitioner'] = ""; 
 		    $tempb['bdate'] = ""; 
@@ -65,14 +65,14 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $tempb['address'] = ""; 
 		    $tempb['note'] = ""; 
 		    $tempb['scharge'] = ""; 
-		    $tempb['tfee'] = ""; 
+		    $tempb['tfee'] = $total_fee; 
 		    $tempb['total'] = ""; 
 		    $tempb['status'] = ""; 
 		    $tempb['payment_status'] = ""; 
 		    $tempb['transaction_id'] = ""; 
 		    $tempb['invoice_id'] = ""; 
 		    $tempb['uid'] = ""; 
-		    $tempb['cur_time'] = "This is total";
+		    $tempb['cur_time'] = "";
 			array_push($data_from_db, $tempb); 
 
 //$highestRow = $this->spreadsheet->getActiveSheet()->getHighestRow();
