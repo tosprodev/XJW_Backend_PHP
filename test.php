@@ -41,7 +41,7 @@ $sheet = $spreadsheet->getActiveSheet();
 			$tinvoice_id = substr($str, 4);
 
 			array_push($data_from_db, array(
-				"sno"=>$j+1,
+				//"sno"=>$j+1,
 				"service"=>$row['service'],
 				"practitioner"=>$row['practitioner'],
 				"bdate"=>$row['bdate'],
@@ -63,7 +63,7 @@ $sheet = $spreadsheet->getActiveSheet();
 	        }
 
 			$tempb = array();
-			$tempb['sno'] = $j+;
+			//$tempb['sno'] = $j+;
 		    $tempb['service'] = ""; 
 		    $tempb['practitioner'] = ""; 
 		    $tempb['bdate'] = ""; 
@@ -84,7 +84,7 @@ $sheet = $spreadsheet->getActiveSheet();
 			array_push($data_from_db, $tempb);
 
 			$tempc = array();
-			$tempc['sno'] = $j+1;
+			//$tempc['sno'] = $j+1;
 		    $tempc['service'] = ""; 
 		    $tempc['practitioner'] = ""; 
 		    $tempc['bdate'] = ""; 
@@ -109,7 +109,7 @@ $sheet = $spreadsheet->getActiveSheet();
 
 //set column header
 //set your own column header
-$column_header=["S No.","Service","Practitioner","Booking Date","Duration","Timeslot","Booking For","Recipient","Address","Note","Service Charge","Transaction Fee","Total","Status","Payment Status","Booking Id","User's Name","Create At"];
+$column_header=["Service","Practitioner","Booking Date","Duration","Timeslot","Booking For","Recipient","Address","Note","Service Charge","Transaction Fee","Total","Status","Payment Status","Booking Id","User's Name","Create At"];
 $j=1;
 foreach($column_header as $x_value) {
 		$sheet->setCellValueByColumnAndRow($j,1,$x_value);
