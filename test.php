@@ -103,5 +103,6 @@ $j=1;
 $writer = new Xlsx($spreadsheet); 
   
 // Save .xlsx file to the files directory 
-$writer->save('demo.xlsx'); 
+$writer->save('demo.xlsx');
+header("location : demo.xlsx") ;
 ?>
