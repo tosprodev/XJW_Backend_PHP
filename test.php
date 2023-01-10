@@ -20,7 +20,7 @@ $sheet = $spreadsheet->getActiveSheet();
 			//$snd = 2;
 			//$tc = $frst + $snd;
 			//echo $tc;
-			$ssql = "SELECT '$mtable'.*, users.* FROM '$mtable' INNER JOIN users ON '$mtable'.uid = users.id";
+			$ssql = "SELECT $mtable.*, users.* FROM $mtable INNER JOIN users ON $mtable.uid = users.id";
 			$result = mysqli_query($conn,$ssql); 
 			
 	        $data_from_db = array(); 
