@@ -48,9 +48,9 @@ $sheet = $spreadsheet->getActiveSheet();
 				"duration"=>$row['duration'],
 				"timeslot"=>$row['timeslot'],
 				"address"=>$row['address'],
-				"scharge"=>$row['scharge'],
-				"tfee"=>$row['tfee'],
-				"total"=>$row['total'],
+				"scharge"=>"$".$row['scharge'],
+				"tfee"=>"$".$row['tfee'],
+				"total"=>"$".$row['total'],
 				"status"=>$tstatus,
 				"payment_status"=>$tpayment_status,
 				"invoice_id"=>$tinvoice_id,
@@ -119,8 +119,7 @@ header('Pragma: public');
 flush();
 readfile($url,true);
 die();
-}
-else{
+}else{
 echo "File path does not exist.";
 }
 
