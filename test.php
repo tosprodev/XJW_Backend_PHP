@@ -34,7 +34,7 @@ $sheet = $spreadsheet->getActiveSheet();
 	        $data_from_db = array(); 
 			while($row = mysqli_fetch_array($result)){
 
-				/*$id = $row['id'];
+				$id = $row['id'];
 				$service = $row['service']; 
 				$practitioner = $row['practitioner'];  
 				$bdate = $row['bdate'];  
@@ -82,7 +82,7 @@ $sheet = $spreadsheet->getActiveSheet();
 			$str = $invoice_id; 
 			$tinvoice_id = substr($str, 4);
 
-		    $temp['service'] = $service; 
+		    /*$temp['service'] = $service; 
 		    $temp['practitioner'] = $practitioner; 
 		    $temp['bdate'] = $bdate; 
 		    $temp['duration'] = $duration; 
@@ -152,7 +152,7 @@ $sheet = $spreadsheet->getActiveSheet();
 
 //set column header
 //set your own column header
-$column_header=["Service","Practitioner","Booking Date","Duration","Timeslot","Booking For","Recipient","Address","Note","Service Charge","Transaction Fee","Total","Status","Payment Status","Booking Id","User Id","Create At"];
+$column_header=["Service","Practitioner","Booking Date","Duration","Timeslot","Booking For","Recipient","Address","Note","Service Charge","Transaction Fee","Total","Status","Payment Status","Booking Id","User's Name","Create At"];
 $j=1;
 foreach($column_header as $x_value) {
 		$sheet->setCellValueByColumnAndRow($j,1,$x_value);
