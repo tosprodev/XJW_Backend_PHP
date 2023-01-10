@@ -31,7 +31,7 @@ $sheet = $spreadsheet->getActiveSheet();
 	        //$stmt->bind_result($id, $service, $practitioner, $bdate, $duration, $timeslot, $booking_for, $recipient, $address, $note, $scharge, $tfee, $total, $status, $payment_status, $transaction_id, $invoice_id, $uid, $cur_time);
 			$result = mysqli_query($conn,$ssql); 
 			
-	        $data_from_db = array(); 
+	        //$data_from_db = array(); 
 			while($row = mysqli_fetch_array($result)){
 
 				$id = $row['id'];
@@ -55,9 +55,9 @@ $sheet = $spreadsheet->getActiveSheet();
 				$cur_time = $row['cur_time'];
 	        //traversing through all the result 
 	        //while($stmt->fetch()){
-	    	//$temp = array();
+	    	$temp = array();
 	    	//$temp['id'] = $id; 
-			/*if ($status == "0") {
+			if ($status == "0") {
 				$tstatus = "Booked";
 			} else if ($status == "1") {
 				$tstatus = "Approved";
@@ -82,7 +82,7 @@ $sheet = $spreadsheet->getActiveSheet();
 			$str = $invoice_id; 
 			$tinvoice_id = substr($str, 4);*/
 
-		    /*$temp['service'] = $service; 
+		    $temp['service'] = $service; 
 		    $temp['practitioner'] = $practitioner; 
 		    $temp['bdate'] = $bdate; 
 		    $temp['duration'] = $duration; 
@@ -100,7 +100,7 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $temp['invoice_id'] = $tinvoice_id; 
 		    $temp['uid'] = $uid; 
 		    $temp['cur_time'] = $cur_time; 
-		    array_push($data_from_db, $temp);*/
+		    array_push($data_from_db, $temp);
 
 			array_push($data_from_db, array(
 				"service"=>$row['service'],
