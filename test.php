@@ -79,21 +79,23 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $temp['cur_time'] = $cur_time; 
 		    array_push($data_from_db, $temp);*/
 
+			if ($row['status'] == "0") {
+				$tstatus = "Booked";
+			} else if ($status == "1") {
+				$tstatus = "Approved";
+			} else if ($status == "1") {
+				$tstatus = "Approved";
+			} else if ($status == "2") {
+				$tstatus = "Completed";
+			} else if ($status == "3") {
+				$tstatus = "Cancelled";
+			}  else if ($status == "4") {
+				$tstatus = "Completed";
+			} 
+
 			array_push($data_from_db, array(
 
-				if ($row['status'] == "0") {
-					$tstatus = "Booked";
-				} else if ($status == "1") {
-					$tstatus = "Approved";
-				} else if ($status == "1") {
-					$tstatus = "Approved";
-				} else if ($status == "2") {
-					$tstatus = "Completed";
-				} else if ($status == "3") {
-					$tstatus = "Cancelled";
-				}  else if ($status == "4") {
-					$tstatus = "Completed";
-				} 
+				
 				
 				/*if ($row['payment_status'] == "0") {
 					$tpayment_status = "Pending";
