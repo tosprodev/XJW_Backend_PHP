@@ -118,7 +118,7 @@ $sheet = $spreadsheet->getActiveSheet();
 				"status"=>$row['status'],
 				"payment_status"=>$row['payment_status'],
 				"invoice_id"=>$row['invoice_id'],
-				"uid"=>$row['uid'],
+				"uid"=>$row['first_name']." ".$row['last_name'],
 				"cur_time"=>$row['cur_time'])
 				);
 	        }
