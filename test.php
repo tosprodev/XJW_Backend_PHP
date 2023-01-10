@@ -96,13 +96,13 @@ $sheet = $spreadsheet->getActiveSheet();
 			
 			if ($row['payment_status'] == "0") {
 				$tpayment_status = "Pending";
-			} else if ($payment_status == "1") {
+			} else if ($payment_status = "1") {
 				$tpayment_status = "Paid";
-			} else if ($payment_status == "2") {
+			} else if ($payment_status = "2") {
 				$tpayment_status = "Cancelled";
 			}
 
-			$str = $invoice_id; 
+			$str = $row['invoice_id']; 
 			$tinvoice_id = substr($str, 4);
 
 			array_push($data_from_db, array(
