@@ -62,8 +62,7 @@ $sheet = $spreadsheet->getActiveSheet();
 				);
 	        }
 
-			$tempb = array();
-			//$tempb['sno'] = $j+;
+			/*$tempb = array();
 		    $tempb['service'] = ""; 
 		    $tempb['practitioner'] = ""; 
 		    $tempb['bdate'] = ""; 
@@ -71,8 +70,8 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $tempb['timeslot'] = ""; 
 		    $tempb['booking_for'] = "TOTAL "; 
 		    $tempb['recipient'] = "---------"; 
-		    $tempb['address'] = "Booking"; 
-		    $tempb['note'] = " Booking : "; 
+		    $tempb['address'] = "Booking : "; 
+		    $tempb['note'] = " ; 
 		    $tempb['scharge'] = "";
 		    $tempb['tfee'] = ""; 
 		    $tempb['total'] = ""; 
@@ -81,10 +80,9 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $tempb['invoice_id'] = ""; 
 		    $tempb['uid'] = ""; 
 		    $tempb['cur_time'] = "";
-			array_push($data_from_db, $tempb);
+			array_push($data_from_db, $tempb);*/
 
 			$tempc = array();
-			//$tempc['sno'] = $j+1;
 		    $tempc['service'] = ""; 
 		    $tempc['practitioner'] = ""; 
 		    $tempc['bdate'] = ""; 
