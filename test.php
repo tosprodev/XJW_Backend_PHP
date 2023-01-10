@@ -34,7 +34,7 @@ $sheet = $spreadsheet->getActiveSheet();
 	        //$data_from_db = array(); 
 			while($row = mysqli_fetch_array($result)){
 
-				$id = $row['id'];
+				/*$id = $row['id'];
 				$service = $row['service']; 
 				$practitioner = $row['practitioner'];  
 				$bdate = $row['bdate'];  
@@ -100,9 +100,9 @@ $sheet = $spreadsheet->getActiveSheet();
 		    $temp['invoice_id'] = $tinvoice_id; 
 		    $temp['uid'] = $uid; 
 		    $temp['cur_time'] = $cur_time; 
-		    array_push($data_from_db, $temp);
+		    array_push($data_from_db, $temp);*/
 
-			/*array_push($data_from_db, array(
+			array_push($data_from_db, array(
 				"service"=>$row['service'],
 				"practitioner"=>$row['practitioner'],
 				"bdate"=>$row['bdate'],
@@ -120,9 +120,9 @@ $sheet = $spreadsheet->getActiveSheet();
 				"uid"=>$row['uid'],
 				"cur_time"=>$row['cur_time'])
 				);
-	        }*/
-		}
-			//echo json_encode($data_from_db);
+	        }
+		
+			echo json_encode($data_from_db);
 
 			/*$tempb = array();
 	    	//$tempb['id'] = "TOTAL :"; 
