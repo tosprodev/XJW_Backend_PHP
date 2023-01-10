@@ -70,7 +70,7 @@ $sheet = $spreadsheet->getActiveSheet();
 // call the db get data function here
 //delete line from 18 to 20 and call the db function
 //$data_from_db=array();
-$data_from_db[1]=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
+$data_from_db=array("id"=>"","service"=>"","practitioner"=>"","duration"=>"","timeslot"=>"","booking_for"=>"","recipient"=>"","address"=>"","note"=>"","scharge"=>"","tfee"=>"","total"=>"","payment_status"=>"","transaction_id"=>"","invoice_id"=>"","uid"=>"","cur_time"=>"This is Total");
 //$data_from_db[0]=array("name"=>"raja1","age"=>43,"agea"=>43,"ageb"=>43,"agec"=>43,"aged"=>43,"agee"=>43);
 
 //set column header
