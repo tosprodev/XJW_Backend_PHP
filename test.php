@@ -12,7 +12,12 @@ $sheet = $spreadsheet->getActiveSheet();
 			$sql="select count('id') from booking";
 			$result=mysqli_query($conn,$sql);
 			$row=mysqli_fetch_array($result);
-			echo "$row[0]";
+			$temp_tc = "$row[0]";
+
+			$frst = $temp_tc;
+			$snd = 1;
+			$tc = $frst + $snd;
+			echo "Result: ".$tc;
 			/*$ssql = "SELECT id, service, practitioner, bdate, duration, timeslot, booking_for, recipient, address, note, scharge, tfee, total, status, payment_status, transaction_id, invoice_id, uid, cur_time FROM $mtable ORDER BY id DESC";
 	        $stmt = $conn->prepare($ssql);
 	
