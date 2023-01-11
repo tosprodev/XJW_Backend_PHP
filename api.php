@@ -3991,7 +3991,7 @@ if ($result->num_rows > 0) {
 				case 'add_message': 
 					date_default_timezone_set('Australia/Victoria');
 					$curdt = date("j-n-Y");
-					$curtme = date('H:i:s');
+					$curtme = date('H:i A');
 
 					if (isset($_POST['cid'])) {
 						$cid = $_POST['cid'];
