@@ -3934,7 +3934,7 @@ if ($result->num_rows > 0) {
 				$page_limit = ceil ($total/$limit); 
 				if($page<=$page_limit){ 
 				$start = ($page - 1) * $limit; 
-				$sql = "SELECT chat.id as cid, chat.* , users.*, practitioner.* FROM chat INNER JOIN users ON chat.uid = users.id INNER JOIN practitioner ON chat.pid = practitioner.id WHERE chat.uid = $uid limit $start, $limit";
+				$sql = "SELECT chat.id as cid, chat.pid as cpid, chat.* , users.*, practitioner.* FROM chat INNER JOIN users ON chat.uid = users.id INNER JOIN practitioner ON chat.pid = practitioner.id WHERE chat.uid = $uid limit $start, $limit";
 				$result = mysqli_query($conn,$sql); 
 				$res = array(); 
 				while($row = mysqli_fetch_array($result)){
@@ -3949,7 +3949,7 @@ if ($result->num_rows > 0) {
 				"firstname"=>$row['firstname'],
 				"lastname"=>$row['lastname'],
 				"btype"=>$row['btype'],
-				"pid"=>$row['pid'])
+				"pid"=>$row['cpid'])
 				);
 				}
 				echo json_encode($res);
