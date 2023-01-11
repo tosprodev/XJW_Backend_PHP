@@ -4167,7 +4167,7 @@ if ($result->num_rows > 0) {
 						if($_POST['cid']){
 
 							$cid = $_POST['cid'];
-							$stmt = $conn->prepare("SELECT count(id) FROM msgs WHERE cid = ? AND LIKE 'p'");
+							$stmt = $conn->prepare("SELECT count(id) FROM msgs WHERE cid = ? AND LIKE '%p%'");
 							$stmt->bind_param("s",$cid);
 							$result = $stmt->execute();
 						if($result == TRUE){
