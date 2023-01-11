@@ -4166,9 +4166,9 @@ if ($result->num_rows > 0) {
 						$response = array();
 						if($_POST['cid']){
 
-							$pid = $_POST['pid'];
+							$cid = $_POST['cid'];
 							$stmt = $conn->prepare("SELECT count(id) as unread FROM practitioner WHERE cid = ?");
-							$stmt->bind_param("s",$pid);
+							$stmt->bind_param("s",$cid);
 							$result = $stmt->execute();
 						if($result == TRUE){
 								$response['error'] = false;
