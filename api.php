@@ -4159,6 +4159,35 @@ if ($result->num_rows > 0) {
 							}
 
 					break;
+
+					/*----------------------------------------------------------- Get Unread message count ----------------------------------------------------*/
+					case 'get_total_unread_message_count':
+										
+						$response = array();
+						if($_POST['cid']){
+
+							$pid = $_POST['pid'];
+							$stmt = $conn->prepare("SELECT count(id) as unread FROM practitioner WHERE cid = ?");
+							$stmt->bind_param("s",$pid);
+							$result = $stmt->execute();
+						if($result == TRUE){
+								$response['error'] = false;
+								$response['message'] = "Retrieval Successful!";
+								$stmt->store_result();
+								$stmt->bind_result($unread);
+								$stmt->fetch();
+								$response['unread'] = $unread;
+							} else{
+								$response['error'] = true;
+								$response['message'] = "Incorrect id";
+							}
+						} else{
+							$response['error'] = true;
+							$response['message'] = "Insufficient Parameters";
+						}
+						echo json_encode($response);
+
+								break;
 					
  
  default: 
