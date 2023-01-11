@@ -4167,8 +4167,9 @@ if ($result->num_rows > 0) {
 						if($_POST['cid']){
 
 							$cid = $_POST['cid'];
-							$stmt = $conn->prepare("SELECT count(id) FROM msgs WHERE cid = ?");
-							$stmt->bind_param("s",$cid);
+							$sid = $_POST['sid'];
+							$stmt = $conn->prepare("SELECT count(id) FROM msgs WHERE cid = ? AND sid = ?");
+							$stmt->bind_param("ss",$cid,$sid);
 							$result = $stmt->execute();
 						if($result == TRUE){
 								$response['error'] = false;
