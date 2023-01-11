@@ -3988,7 +3988,7 @@ if ($result->num_rows > 0) {
 
 				/*----------------------------------------------------------- Add Messages ----------------------------------------------------*/
 
-				case 'add_message': 
+				case 'add_message_ua': 
 					date_default_timezone_set('Australia/Victoria');
 					$curdt = date("j-n-Y");
 					$curtme = date('H:i A');
