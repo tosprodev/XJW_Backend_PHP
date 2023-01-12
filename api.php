@@ -3898,11 +3898,11 @@ if ($result->num_rows > 0) {
 				$page = $_GET['page'];  
 				$start = 0; 
 				$limit = 15; 
-				$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM msgs WHERE cid = '$cid'"));
+				$total = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM msgs WHERE cid = '$cid' ORDER BY id ASC"));
 				$page_limit = ceil ($total/$limit); 
 				if($page<=$page_limit){ 
 				$start = ($page - 1) * $limit; 
-				$sql = "SELECT * from msgs WHERE cid = '$cid' limit $start, $limit";
+				$sql = "SELECT * from msgs WHERE cid = '$cid' ORDER BY id ASC limit $start, $limit";
 				$result = mysqli_query($conn,$sql); 
 				$res = array(); 
 				while($row = mysqli_fetch_array($result)){
