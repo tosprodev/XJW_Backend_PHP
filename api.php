@@ -3923,6 +3923,21 @@ if ($result->num_rows > 0) {
 				}
 				break;
 
+				/*----------------------------------------------------------- Delete Messages ----------------------------------------------------*/
+					case 'delete_message';
+								
+					$ID = $_POST['id'];
+
+					$Sql_Query = "DELETE FROM msgs WHERE id = '$ID'";
+
+					if(mysqli_query($conn,$Sql_Query))
+						{
+							echo 'Message Deleted Successfully';
+						} else {
+							echo 'Something went wrong';
+						}
+					break;
+
 				/*----------------------------------------------------------- Get Chat List ----------------------------------------------------*/
  
 				case 'get_chat_list';
