@@ -3896,7 +3896,7 @@ if ($result->num_rows > 0) {
 					case 'get_chat_id_detain':
 										
 						$response = array();
-						if($_POST['uid']){
+						if($_POST['uid'], $_POST['pid'], $_POST['btype'], $_POST['bid']){
 
 							$uid = $_POST['uid'];
 							$pid = $_POST['pid'];
