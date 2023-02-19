@@ -3895,15 +3895,16 @@ if ($result->num_rows > 0) {
 				/*----------------------------------------------------------- Get Chat id ----------------------------------------------------*/
 					case 'get_chat_id_detain':
 										
-						$response = array();
-						if($_POST['uid']){
+						
+						if(isTheseParametersAvailable(array('uid','pid','btype','bid'))){
+						//if($_POST['uid']){
 
 							$uid = $_POST['uid'];
 							$pid = $_POST['pid'];
 							$btype = $_POST['btype'];
 							$bid = $_POST['bid'];
-							$stmt = $conn->prepare("SELECT id FROM chat WHERE uid = ? AND pid = ?");
-							$stmt->bind_param("ss",$uid,$pid);
+							$stmt = $conn->prepare("SELECT id FROM chat WHERE uid = ? AND pid = ? AND btype = ? AND bid = ?");
+							$stmt->bind_param("ssss",$uid,$pid,$btype,$bid);
 							$result = $stmt->execute();
 						if($result == TRUE){
 								$response['error'] = false;
