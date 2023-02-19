@@ -1602,7 +1602,7 @@ case 'get_services_list';
 				  $status = $_POST['status'];
 				  $payment_status = $_POST['payment_status'];
 				  $transaction_id = $_POST['transaction_id'];
-				  $invoice_id = "INV-".generateRandomString($length = 2).generateRandomNumber($length = 5);
+				  $invoice_id = generateRandomString($length = 2).generateRandomNumber($length = 5);
 				  $uid = $_POST['uid'];
 				  $remail = "";
 				  $uname = "";
@@ -1779,7 +1779,7 @@ case 'get_services_list';
 				  $status = $_POST['status'];
 				  $payment_status = $_POST['payment_status'];
 				  $transaction_id = $_POST['transaction_id'];
-				  $invoice_id = "INV-".generateRandomString($length = 2).generateRandomNumber($length = 5);
+				  $invoice_id = generateRandomString($length = 2).generateRandomNumber($length = 5);
 				  $uid = $_POST['uid'];
 				  
 					
