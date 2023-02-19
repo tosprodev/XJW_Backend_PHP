@@ -4015,7 +4015,7 @@ if ($result->num_rows > 0) {
 						$pid = $_POST['pid'];
 						$btype = $_POST['btype'];
 						$bid = $_POST['bid'];
-						$query = mysqli_query($conn, "SELECT id FROM `chat` WHERE uid='".$uid."' AND pid='".$pid."'");
+						$query = mysqli_query($conn, "SELECT id FROM `chat` WHERE uid='".$uid."' AND pid='".$pid."' AND bid='".$bid."'");
 							if(mysqli_num_rows($query) > 0){
 									echo 'Chat Exist';
 								}else{
