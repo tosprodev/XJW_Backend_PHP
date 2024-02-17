@@ -3660,7 +3660,7 @@ if ($result->num_rows > 0) {
 							if(mysqli_query($conn,$sql)){
 							file_put_contents($path,base64_decode($image));
 							echo "Successfully Uploaded";
-							}
+							} 
 							
 							mysqli_close($conn);
 							}else{
